@@ -12,4 +12,5 @@ références pour démarrer)
 - réaliser une application exemple
 
 Encadrant : Stéphane Lopes (stephane.lopes@uvsq.fr)
+
 Nombre d'étudiants : 2
