@@ -54,6 +54,34 @@ Le but du langage Go est de proposer un langage simple à comprendre et facile �
 
 \subsection{Composants élémentaires de Go}
 
+\subsubsection{Types}
+
+Il existe 5 variantes de types, chacune ayant des caractéristiques uniques : 
+
+\begin{tabular}[h]{|c|c|c|}
+	\hline
+	Types & Noms spécifiques & Description \\
+	\hline
+	Booléen & & prend 2 valeurs possibles (\textit{true} ou \textit{false}) \\
+	\hline
+	Numérique & Entier & \textit{uintX} ou \textit{intX} (avec X=8, 16, 32 ou 64) \\
+	 & & pour plusieurs tailles différentes selon les besoins. \\
+	& Flottant &  \textit{float32}, \textit{float64}, \textit{complex64}, \textit{complex128}. \\
+	\hline 
+	Chaîne de caractères & & \textit{string} qui ne peut pas être modifié après son initialisation. \\
+	\hline
+	Type dérivé & Tableau & correspond à un ensemble de variables ayant le même type. \\
+	 & Slice & tableau dynamique pour lequel on peut augmenter sa taille. \\
+	 & Pointeur & permet de référencer une variable. \\
+	 & Structure & permet de créer un nouveau type d'objet ayant plusieurs champs. \\
+	 & Fonction & permet de déclarer une nouvelle fonction dans un programme Go. \\
+	 & Interface & permet de regrouper un ensemble de signatures de fonctions. \\
+	 & Map & permet de stocker des valeurs en leur associant une clé. \\
+	 \hline 
+	
+	
+\end{tabular}
+
 \subsection{Structure d'un programme}
 
 \subsection{Types prédéfinis}
