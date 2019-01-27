@@ -1,0 +1,282 @@
+# Carte de référence du langage Go
+
+## Bases du langage 
+
+1. Variable : permet de déclarer une variable modifiable à tout moment. 
+
+    ```go
+    var a int = 1
+    /* ou directement */
+    a := 1 
+    ```
+
+2. Constante : permet de déclarer une constante (non modifiable)
+
+    ```go
+    const pi double float32 = 3.14
+    ```
+    
+3. Types : mettre un tableau des differents types importants A REMPLIR
+
+4. import : permet d'importer des fichiers tels que les bibliotheques standards (ex : fmt)
+
+    ```go
+    import "fmt"
+    import "math"
+    ```
+    
+
+5. Condition : permet de faire des instructions si la condition est vraie (if). On peut effectuer des instructions si la condition est fausse (else). Il est possible de faire une succession de tests avec if/else if/.../else.
+
+    ```go
+    var a int = 3
+    if a < 0{
+        fmt.Println("negatif")
+    } else if a > 0 {
+        fmt.Println(a, "positif")
+    } else {
+        fmt.Println(a, "nul")
+    }
+    ```
+
+6. Boucle : une boucle se fait avec le mot clé for. 
+
+    ```go
+    for i := 0; i < 10; i++ {
+        fmt.Println(i)
+    }
+
+    /* ou bien */
+
+    i := 0 
+    for i < 10 {
+        fmt.Println(i)
+        i = i + 1
+    }
+    ```
+
+7. Break : permet de sortir de la boucle dans laquelle se trouve l'instruction
+
+    ```go
+    for i:=0; i < 10; i++ {
+        if i == 5 {
+            break
+        }
+    fmt.Println(i)
+    }
+    ```
+8. Switch : permet de faire une succession de cas possibles au lieu de plusieurs tests successifs
+
+    ```go
+    a := 1
+    switch a%2 {
+    case 0:
+        fmt.Println("pair")
+    case 1:
+        fmt.Println("impair")
+    }
+    ```
+
+9. Tableau : permet de déclarer un ensemble fini (à une ou plusieurs dimensions) et ordonné de variables ayant le même type
+
+    ```go
+    var b [2] int
+	b[0]=0
+	b[1]=1
+
+	/* ou directement */ 
+
+	b := [2]int{0, 1}
+    ```
+
+10. Slice : permet de déclarer une slice (tableau dynamique) à une ou plusieurs dimensions
+
+    ```go
+    s := make([]string, 2)
+    s[0] = "a"
+    s[1] = "b"
+
+    /* ou directement */ 
+
+    s := []string{"a", "b"}
+    ```
+6. len() : permet de récupérer la taille d'un tableau ou d'une slice
+
+    ```go
+     var a [2] int
+    fmt.Println(len(a))
+    ```
+
+7. append() : permet d'ajouter un élément à la slice
+
+    ```go
+    s := make([]string, 2)
+    s[0] = "a"
+    s[1] = "b"
+    s = append(s, "c") 
+    ```
+
+8. copy() : permet de copier une slice dans une autre 
+
+    ```go
+    s := make([]string, 2)
+    s[0] = "a"
+    s[1] = "b"
+    c := make([]string, len(s))
+    copy(c, s);
+    ```
+
+9. Map : permet de stocker des valeurs en leur associant une clé
+
+    ```go
+    m := make(map[string]int)
+    m["mehdi"] = 1
+    m["clement"] = 2
+    ```
+
+10. delete() : permet de supprimer une valeur dans la map
+
+    ```go
+    m := make(map[string]int)
+    m["mehdi"] = 1
+    m["clement"] = 2
+    delete(m, "clement")
+    ```
+
+11. identificateur _ : permet de déclarer une variable permettant de tester la présence d'une clé (true ou false)
+
+    ```go
+    m := make(map[string]int)
+    m["mehdi"] = 1
+    m["clement"] = 2
+    _, test := m["clement"]
+    ```
+
+12. Range : permet d'itérer facilement dans une structure de tableau, de slice ou de map
+
+    ```go
+    tab := []int{1, 2, 3}
+    somme := 0
+    for _, val := range tab {
+        somme += val
+    }
+    fmt.Println("Somme:", somme)
+    ```
+
+13. Fonction : déclarer une fonction se fait avec le mot clé func. Une fonction peut avoir plusieurs retours
+
+    ```go
+    func calcul (val1 int, val2 int) int {
+        return val1 + val2
+    }
+
+    func calcul2 (val1 int, val2 int) (int, int){
+        return val1 + val2, val1 - val2
+    }
+
+    func main() {
+        var test1, test2, test3 int = 0, 0, 0
+        test1, test2 = calcul2(2,3)
+        test3 = calcul3(1,2)
+    }
+    ```
+
+14. Pointeur : permet de faire des références sur des variables. Les pointeurs Go s'utilisent comme en langage C
+
+    ```go
+    func add (val *int){
+        *val = *val + 1
+    }
+
+    func main() {
+        var cal int = 2
+        add(&cal)
+        fmt.Println(cal)
+    }
+    ```
+
+15. Structure : déclarer une structure se fait avec le mot clé struct. Une structure est un nouveau type de variables possédant plusieurs champs
+
+    ```go
+    type etudiant struct {
+        nom string
+        num  int
+    }
+
+    func main() {
+        e := etudiant{nom: "Clement", num: 21501810}
+        fmt.Println(e)
+    }
+    ```
+
+16. Méthode : correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure)
+
+    ```go
+    func (e etudiant) change_num (nouveau int) etudiant{
+        e.num=nouveau
+        return e
+    }
+
+    func main() {
+        e := etudiant{nom: "Clement", num: 21501810}
+        e = e.change_num(21500000)
+        fmt.Println(e)
+    }
+    ```
+
+17. Interface : permet de regrouper des signatures de méthodes communes à plusieurs structures
+
+    ```go
+    type politesse interface {
+        saluer() string
+    }
+
+    type francais struct {
+        nom string
+    }
+
+    func (f francais) saluer() string {
+        return "bonjour"
+    }
+
+    type anglais struct {
+        name string
+    }
+
+    func (a anglais) saluer() string{
+        return "hello"
+    }
+
+    func parler(p politesse) {
+        fmt.Println(p.saluer())
+    }
+
+    func main() {
+        angl := anglais{name: "James"}
+        fran := francais{nom: "Jean"}
+        parler(angl) // affiche "hello"
+        parler(fran) // affiche "bonjour"
+    }
+    ```
+
+18. Gestion d'erreurs : permet de gérer les exceptions
+
+    ```go
+    func quotient (num float32, denom float32) (float32, error){
+        if denom == 0 {
+            return -1, errors.New("Erreur mathematique")
+        }else {
+            return num / denom, nil
+        }
+    }
+
+    func main() {
+        var c1 float32
+        var err error
+        var a1, b1 float32 = 1,2
+        c1,err = quotient(a1, b1)
+        fmt.Println(c1)
+        fmt.Println(err)
+    }
+    ```
+
