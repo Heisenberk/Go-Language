@@ -21,7 +21,7 @@ a := 1
 Une constante permet de déclarer une constante (non modifiable).
     
 ```go
-const pi double float32 = 3.14
+const pi float32 = 3.14
 ```
     
 ### Types 
@@ -44,7 +44,7 @@ Une condition permet de faire des instructions si la condition est vraie (`if`).
 ```go
 var a int = 3
 if a < 0{
-    fmt.Println("negatif")
+    fmt.Println(a, "negatif")
 } else if a > 0 {
     fmt.Println(a, "positif")
 } else {
@@ -72,7 +72,7 @@ for i < 10 {
 
 ### Break
 
-`Break` permet de sortir de la boucle dans laquelle se trouve l'instruction.
+`break` permet de sortir de la boucle dans laquelle se trouve l'instruction.
     
 ```go
 for i:=0; i < 10; i++ {
@@ -85,7 +85,7 @@ for i:=0; i < 10; i++ {
 
 ### Switch
 
-`Switch` permet de faire une succession de cas possibles au lieu de plusieurs tests successifs.
+`switch` permet de faire une succession de cas possibles au lieu de plusieurs tests successifs.
     
 ```go
 a := 1
@@ -186,7 +186,8 @@ Cet identificateur permet de déclarer une variable permettant de tester la pré
 m := make(map[string]int)
 m["mehdi"] = 1
 m["clement"] = 2
-_, test := m["clement"]
+_, test1 := m["clement"] // test1 vaut true
+_, test2 := m["inconnu"] // test2 vaut false
 ```
 
 ### range
@@ -207,7 +208,7 @@ fmt.Println("Somme:", somme)
 Déclarer une fonction se fait avec le mot clé `func`. Une fonction peut avoir plusieurs retours.
     
 ```go
-func calcul (val1 int, val2 int) int {
+func calcul1 (val1 int, val2 int) int {
     return val1 + val2
 }
 
@@ -218,7 +219,7 @@ func calcul2 (val1 int, val2 int) (int, int){
 func main() {
     var test1, test2, test3 int = 0, 0, 0
     test1, test2 = calcul2(2,3)
-    test3 = calcul3(1,2)
+    test3 = calcul1(1,2)
 }
 ```
 

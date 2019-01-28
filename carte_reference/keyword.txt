@@ -1,28 +1,5 @@
 
 
-- break : permet de sortir d'une boucle 
-ex : 
-for i:=0; i < 10; i++ {
-	 if i == 5 {
-        break
-    }
-	fmt.Println(i)
-}
-
-- switch : permet de faire une succession de cas possibles
-ex : 
-	i := 1
-    switch i%2 {
-    case 0:
-        fmt.Println("pair")
-    case 1:
-        fmt.Println("impair")
-    }
-    
-- import : permet d'importer des fichiers tels que les bibliotheques standards (ex : fmt)
-
-import "fmt"
-import "math"
 
 - error : permet de gérer des exceptions
 
