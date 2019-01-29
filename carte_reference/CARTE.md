@@ -332,3 +332,17 @@ func main() {
 }
 ```
 
+## Ressources d'apprentissage
+
+
+- [Préambule pour découvrir le langage Go](https://fr.wikipedia.org/wiki/Go_(langage))
+
+- [Site officiel de Go](https://golang.org/)
+
+- [Bases du langage Go](https://www.tutorialspoint.com/go/index.htm)
+
+- [Illustrations de l'utilisation des bases du langage Go](https://gobyexample.com/)
+
+- [Introduction de la concurrence en langage Go](https://blog.fedora-fr.org/metal3d/post/Go-et-les-goroutines-introduction-au-langage)
+
+- [Go vs C++](https://www.scriptol.fr/programmation/go.php)
