@@ -23,10 +23,20 @@ Une constante permet de déclarer une constante (non modifiable).
 ```go
 const pi float32 = 3.14
 ```
-    
-### Types 
 
-mettre un tableau des differents types importants A REMPLIR
+### Type
+
+Il existe plusieurs types en langage Go : 
+- le type booléen `bool` prend 2 valeurs possibles : `true` ou `false`. 
+- le type `string` représentant une chaîne de caractères. 
+- le type entier non signé : `uint`, `uint8` (ou `byte` pour représenter l'octet), `uint16`, `uint32` et `uint64`.
+- le type entier signé : `int`, `int8`, `int16`, `int32` (ou `rune` pour représenter un caractère unicode) et `int64`. 
+- le type réel : `float32` et `float64`. 
+- le type complexe : `complex64` et `complex128`
+
+Les manipulations arithmétiques (`+`, `-`, `*`, `/`, `%`, `++` et `--`), relationnelles (`==`, `!=`, `>`, `<`, `>=` et `<=`) et binaires (`<<`, `>>`, `&`, `|`, `^`) fonctionnent en Go. 
+
+
 
 ### import
 
@@ -332,17 +342,17 @@ func main() {
 }
 ```
 
+## Bibliothèques du langage Go
+
+## Outils de développement
+
 ## Ressources d'apprentissage
 
-
 - [Préambule pour découvrir le langage Go](https://fr.wikipedia.org/wiki/Go_(langage))
-
 - [Site officiel de Go](https://golang.org/)
-
 - [Bases du langage Go](https://www.tutorialspoint.com/go/index.htm)
-
 - [Illustrations de l'utilisation des bases du langage Go](https://gobyexample.com/)
-
 - [Introduction de la concurrence en langage Go](https://blog.fedora-fr.org/metal3d/post/Go-et-les-goroutines-introduction-au-langage)
-
 - [Go vs C++](https://www.scriptol.fr/programmation/go.php)
+- [Application smartphone pour apprendre le langage Go](https://play.google.com/store/apps/details?id=in.intelitech.golang&hl=en_US)
+
