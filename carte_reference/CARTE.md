@@ -344,6 +344,45 @@ func main() {
 
 ## Bibliothèques du langage Go
 
+### Principales bibliothèques standards
+
+#### Bibliothèque `fmt`
+
+`fmt` est la bibliothèque permettant de gérer les entrées-sorties de l'utilisateur. En langage C, on peut donc la comparer à la bibliothèque `stdio.h`. 
+On peut utiliser la fonction `Printf` pour faire un affichage "formaté" et `Scanf` pour récupérer l'entrée de l'utilisateur (le clavier par défaut).  
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    test := 2
+    fmt.Printf("test = %d \n", test)
+    var entree int
+    fmt.Scanf("%d", &entree)
+    fmt.Printf("entree : %d\n", entree)
+    /* 
+        affiche "test = 2"
+        puis attend l'entrée de l'utilisateur
+        Si l'utilisateur écrit "3" alors l'affichage sera "entree : 3"
+    */
+}
+```
+Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-fmt](https://golang.org/pkg/fmt/). 
+
+#### Bibliothèque `io`
+
+#### Bibliothèque `os`
+
+#### Bibliothèque `strings`
+
+#### Bibliothèque `time`
+
+#### Bibliothèque `error`
+
+### Principales bibliothèques tierces
+
 ## Outils de développement
 
 ## Ressources d'apprentissage
