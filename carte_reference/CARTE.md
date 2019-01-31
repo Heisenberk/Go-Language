@@ -441,11 +441,25 @@ func main() {
 
 Dans cet exemple simple, on concatène les éléments de `tab` avec le séparateur `", "` entre chaque élément. Si on veut juste concaténer sans séparateur,il suffit de mettre `""`. 
 
-Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-strings](https://golang.org/pkg/strings/).
+Pour plus d'informations sur cette bibliothèque standard : [Golang-strings](https://golang.org/pkg/strings/).
 
 #### Bibliothèque `time`
 
+La bibliothèque `time` propose des fonctions permettant de mesurer et d'afficher le temps. Celle-ci est comparable à `time.h` en C et à `ctime` en C++. 
+
+Pour plus d'informations sur cette bibliothèque : [Golang-time](https://golang.org/pkg/time/).
+
 ### Principales bibliothèques tierces
+
+Il existe plusieurs bibliothèques tierces, qui sont pour la plupart une extension de certaines bibliothèques standards sur Go, notamment `crypto`, `image`, `net`, `sync` ou `time`. Il existe d'autres bibliothèques non standards tels que : 
+
+#### Bibliothèque `debug`
+
+Cette bibliothèque est une librairie expérimentale qui permet au codeur d'applications Go, de gérer plus facilement le débuggage de ces programmes : [Golang-debug](https://godoc.org/golang.org/x/debug).
+
+#### Bibliothèque `mobile`
+
+La bibliothèque `mobile` permet d'utiliser des programmes Go pour l'intégrer à des applications pour smartphones (tels que Android et iOS) : [Golang-mobile](https://godoc.org/golang.org/x/mobile).
 
 ## Outils de développement
 
