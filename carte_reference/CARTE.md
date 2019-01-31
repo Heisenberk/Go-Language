@@ -319,29 +319,6 @@ func main() {
 }
 ```
 
-### Gestion d'erreurs 
-
-Les erreurs (`errors`) permettent de gérer les exceptions en langage Go.
-    
-```go
-func quotient (num float32, denom float32) (float32, error){
-    if denom == 0 {
-        return -1, errors.New("Erreur mathematique")
-    }else {
-        return num / denom, nil
-    }
-}
-
-func main() {
-    var c1 float32
-    var err error
-    var a1, b1 float32 = 1,2
-    c1,err = quotient(a1, b1)
-    fmt.Println(c1)
-    fmt.Println(err)
-}
-```
-
 ## Bibliothèques du langage Go
 
 ### Principales bibliothèques standards
@@ -371,7 +348,43 @@ func main() {
 ```
 Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-fmt](https://golang.org/pkg/fmt/). 
 
-#### Bibliothèque `error`
+#### Bibliothèque `errors`
+
+Les erreurs `errors` permettent de gérer les exceptions en langage Go.
+    
+```go
+package main
+
+import "fmt"
+import "errors"
+
+func verifie_positif (nombre float32){
+    if(nombre < 0){
+        // panic permet de sortir du programme et d'afficher l'exception lancée
+        panic(errors.New("Ce nombre ne doit pas etre negatif"))
+    }
+}
+
+func quotient (num float32, denom float32) (float32, error){
+    if denom == 0 {
+        return -1, errors.New("Erreur mathematique")
+    }else {
+        return num / denom, nil
+    }
+}
+
+func main() {
+    var c1 float32
+    var err error
+    var a1, b1 float32 = 1,2
+    c1,err = quotient(a1, b1)
+    fmt.Println(c1)
+    fmt.Println(err)
+    verifie_positif(12.0)
+}
+```
+Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-errors](https://golang.org/pkg/errors/).
+
 
 #### Bibliothèque `io`
 
@@ -399,12 +412,36 @@ func main(){
 
 }
 ```
-Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/). 
+Pour plus d'informations, notamment la gestion des retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/). 
 
 
 #### Bibliothèque `os`
 
+La bibliothèque `os` est très utile pour la gestion des processus, des ouvertures et fermetures de fichiers, la manipulation de dossiers et des permissions. 
+
+Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-os](https://golang.org/pkg/os/).
+
+
 #### Bibliothèque `strings`
+
+`strings` permet de gérer la manipulation de chaînes de caractères. Elle est comparable à la bibliothèque `string.h` en langage C. 
+
+```go
+package main
+
+import "fmt"
+import "strings"
+
+func main() {
+    tab := []string{"clement", "mehdi", "TER", "master"}
+    chaine := strings.Join(tab, ", ")
+    fmt.Println(chaine)
+}
+```
+
+Dans cet exemple simple, on concatène les éléments de `tab` avec le séparateur `", "` entre chaque élément. Si on veut juste concaténer sans séparateur,il suffit de mettre `""`. 
+
+Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-strings](https://golang.org/pkg/strings/).
 
 #### Bibliothèque `time`
 
