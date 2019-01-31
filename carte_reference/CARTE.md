@@ -371,15 +371,42 @@ func main() {
 ```
 Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-fmt](https://golang.org/pkg/fmt/). 
 
+#### Bibliothèque `error`
+
 #### Bibliothèque `io`
+
+`io` est la bibliothèque permettant notamment d'intéragir avec les fichiers. Il est donc possible de lire et d'écrire dans des fichiers. 
+
+Dans cet exemple, on va lire en entier le fichier `test1.txt` et recopier son contenu dans le fichier `test1_copie.txt`. A noter que si le fichier `test1_copie.txt` n'existe pas, il le crée ; sinon, il l'écrase. 
+
+```go
+package main
+
+import "io/ioutil"
+
+func main(){
+
+    donnees_copiees, err1 := ioutil.ReadFile("test1.txt")
+    if err1 != nil {
+        panic(err1)
+    }
+
+    donnees_a_recopier := []byte(string(donnees_copiees))
+    err2 := ioutil.WriteFile("test1_copie.txt", donnees_a_recopier, 0644) // 0644 correspond aux permissions.
+    if err2 != nil {
+        panic(err2)
+    }
+
+}
+```
+Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/). 
+
 
 #### Bibliothèque `os`
 
 #### Bibliothèque `strings`
 
 #### Bibliothèque `time`
-
-#### Bibliothèque `error`
 
 ### Principales bibliothèques tierces
 
