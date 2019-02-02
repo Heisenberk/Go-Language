@@ -31,18 +31,10 @@ func different_val() int {
 return 99-meme_val()
 
 }
-func div_10() int {
-var tab []int =alea(99)
-	for i := 0 ; i< len(tab) ; i++{
-		if tab[i] == len(tab) % 10 {
-			return i
-}
-}
-return -1
-}
+
 func main() {
 
-	fmt.Println(div_10())	
+	fmt.Println(meme_val())	
 
 
 }
