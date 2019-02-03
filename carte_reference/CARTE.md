@@ -386,9 +386,42 @@ func main() {
 Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-errors](https://golang.org/pkg/errors/).
 
 
+#### Bibliothèque `os`
+
+La bibliothèque `os` est très utile pour la gestion des processus, des ouvertures et fermetures de fichiers, la manipulation de dossiers et des permissions. 
+
+Dans cet exemple, on ouvre en écriture le fichier `test_ouverture.txt` (crée un nouveau fichier s'il n'existe pas). Puis, on écrit dans le fichier pour enfin le fermer. 
+
+```go
+package main
+
+import "fmt"
+import "os"
+
+func main() {
+    f, err1 := os.OpenFile("test_ouverture.txt", os.O_WRONLY|os.O_CREATE, 0755)
+    if err1 != nil {
+        panic(err1)
+    }
+    nb_octets, err2 := f.WriteString("voici un test")
+    if err2 != nil {
+        panic(err2)
+    }
+    fmt.Println("Nb d'octets écrits dans le fichier : ", nb_octets)
+    err3 := f.Close();
+    if err3 != nil {
+        panic(err3)
+    }
+}
+```
+
+Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-os](https://golang.org/pkg/os/).
+
+
 #### Bibliothèque `io`
 
 `io` est la bibliothèque permettant notamment d'interagir avec les fichiers. Il est donc possible de lire et d'écrire dans des fichiers. 
+La différence avec `os` est le fait que `io` est plus "haut niveau" que `os` notamment avec la manipulation des fichiers. 
 
 Dans cet exemple, on va lire en entier le fichier `test1.txt` et recopier son contenu dans le fichier `test1_copie.txt`. A noter que si le fichier `test1_copie.txt` n'existe pas, il le crée ; sinon, il l'écrase. 
 
@@ -413,13 +446,6 @@ func main(){
 }
 ```
 Pour plus d'informations, notamment la gestion des retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/). 
-
-
-#### Bibliothèque `os`
-
-La bibliothèque `os` est très utile pour la gestion des processus, des ouvertures et fermetures de fichiers, la manipulation de dossiers et des permissions. 
-
-Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-os](https://golang.org/pkg/os/).
 
 
 #### Bibliothèque `strings`
