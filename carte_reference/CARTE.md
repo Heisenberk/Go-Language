@@ -399,7 +399,7 @@ import "fmt"
 import "os"
 
 func main() {
-    f, err1 := os.OpenFile("test_ouverture.txt", os.O_WRONLY|os.O_CREATE, 0755)
+    f, err1 := os.OpenFile("test_ouverture.txt", os.O_WRONLY|os.O_CREATE, 0644)
     if err1 != nil {
         panic(err1)
     }
@@ -518,6 +518,71 @@ Cette bibliothèque est une librairie expérimentale qui permet au développeur 
 La bibliothèque `mobile` permet d'utiliser des programmes Go pour l'intégrer à des applications pour smartphones (tels que Android et iOS) : [Golang-mobile](https://godoc.org/golang.org/x/mobile).
 
 ## Outils de développement
+
+### Présentation
+
+Le langage Go est un langage très récent (première version en 2009) et est en forte expansion comme langage populaire pour des applications. De nombreux IDE sont disponibles pour programmer en Go, tels que Eclipse (avec GoClipse comme plugin), IntelliJ, Sublime Text ... Ils permettent de programmer plus facilement en Go, notamment avec la reconnaissance de syntaxe Go. 
+
+Pour plus d'informations sur les IDE supportant Go : [IDEsAndTextEditorPlugins](https://github.com/golang/go/wiki/IDEsAndTextEditorPlugins)
+
+### Commandes
+
+Pour obtenir toutes les fonctionnalités afin de programmer en langage Go, il suffit d'installer "golang-go", notamment en tapant la commande suivante sur Linux : `sudo apt-get install golang-go`. 
+
+Ainsi, on peut effectuer la commande `go [commande] [arguments]`. Il existe plusieurs commandes importantes : 
+- `build` pour compiler les fichiers sources d'extension `.go`. 
+- `run` pour compiler et exécuter directement. 
+- `clean` pour supprimer les fichiers créés lors de la compilation. 
+- `doc` pour afficher la documentation de fichiers sources.
+- `get` pour télécharger de nouvelles librairies Go. 
+- `install` pour installer de nouvelles librairies Go. 
+- `test` pour effectuer les tests unitaires. 
+
+Pour plus d'informations, notamment sur les commandes ainsi que sur les installations et manipulations à effectuer : [CommandesInstallationsGo](https://golang.org/cmd/go/)
+
+### Compilation
+
+Lors des manipulations à effectuer, il a fallu, en autre, choisir un `$GOPATH` : il correspond au chemin où chercher les différentes dépendances (non standards). 
+Pour pouvoir créer un projet modulaire en langage Go, il va falloir créer un dossier `$GOPATH/src/pkg` avec `pkg` le nom du package à créer. 
+
+Dans notre exemple, nous allons créer le package `point` qui contiendra une structure `point` et une fonction d'affichage, puis, le package `projet` qui contiendra le main et qui appellera un point. 
+
+```go
+/* $GOPATH/src/projet */
+
+package main
+
+import "fmt"
+import "point"
+
+func main() {
+    p := point.Point{X : 3, Y: 2}
+    fmt.Println(point.PrintPoint(p))
+}
+```
+
+```go
+/* $GOPATH/src/point */
+
+package point
+
+import "strconv"
+
+type Point struct {
+    X int
+    Y int
+}
+
+func PrintPoint (p Point) string {
+    return "(" + strconv.Itoa(p.X) + "," + strconv.Itoa(p.Y) + ")"
+}
+```
+
+Il est important de noter que :
+- les __majuscules__ en début de noms de champs de structure, de structures et de fonctions sont __primordiales__ s'il faut faire appel à un élément d'un package différent : c'est donc une **convention d'écriture** en Go.  
+- il faut créer __1 dossier PAR package__.
+- le nom que l'on donne après `package` est le dernier dossier dans lequel est le package : si `Point` était dans `$GOPATH/src/forme/basic/point`, son package sera `point`. 
+
 
 ## Ressources d'apprentissage
 

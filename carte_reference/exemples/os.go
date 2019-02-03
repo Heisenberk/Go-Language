@@ -4,7 +4,7 @@ import "fmt"
 import "os"
 
 func main() {
-    f, err1 := os.OpenFile("test_ouverture.txt", os.O_WRONLY|os.O_CREATE, 0755)
+    f, err1 := os.OpenFile("test_ouverture.txt", os.O_WRONLY|os.O_CREATE, 0644)
 	if err1 != nil {
 		panic(err1)
 	}
