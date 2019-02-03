@@ -137,7 +137,7 @@ s := []string{"a", "b"}
 
 ### len()
 
-`len()` permet de récupérer la taille d'un tableau ou d'une slice.
+`len()` permet de récupérer la taille d'un tableau, d'un string ou d'une slice.
     
 ```go
 var a [2] int
@@ -388,7 +388,7 @@ Pour plus d'informations, notamment la gestion des formats ainsi que les retours
 
 #### Bibliothèque `io`
 
-`io` est la bibliothèque permettant notamment d'intéragir avec les fichiers. Il est donc possible de lire et d'écrire dans des fichiers. 
+`io` est la bibliothèque permettant notamment d'interagir avec les fichiers. Il est donc possible de lire et d'écrire dans des fichiers. 
 
 Dans cet exemple, on va lire en entier le fichier `test1.txt` et recopier son contenu dans le fichier `test1_copie.txt`. A noter que si le fichier `test1_copie.txt` n'existe pas, il le crée ; sinon, il l'écrase. 
 
@@ -424,7 +424,7 @@ Pour plus d'informations sur cette bibliothèque standard très complète : [Gol
 
 #### Bibliothèque `strings`
 
-`strings` permet de gérer la manipulation de chaînes de caractères. Elle est comparable à la bibliothèque `string.h` en langage C. 
+`strings` permet de gérer la manipulation de chaînes de caractères. Elle est comparable à la manipulation de string en langage Java. 
 
 ```go
 package main
@@ -433,19 +433,49 @@ import "fmt"
 import "strings"
 
 func main() {
-    tab := []string{"clement", "mehdi", "TER", "master"}
-    chaine := strings.Join(tab, ", ")
-    fmt.Println(chaine)
+    // Count compte le nombre de sous-chaines ("ca") dans un string ("cacao")
+    nb1 := strings.Count("cacao", "ca")
+    fmt.Println("Il y a", nb1, "\"ca\" dans \"cacao\"")
+
+    // Index renvoie le numéro de la première case de la sous-chaine ("a") dans un string ("cacao")
+    nb2 := strings.Index("cacao", "a")
+    fmt.Println(nb2)
+
+    // Join concatène un ensemble de string par un séparateur 
+    // (si on ne souhaite pas de séparateur il faut mettre "")
+    chaine1 := strings.Join([]string{"clement", "mehdi", "TER", "master"}, ", ")
+    fmt.Println(chaine1)
+
+    // Repeat concatène un certain nombre de fois (4) un string ("ah")
+    chaine2 := strings.Repeat("ah",4)
+    fmt.Println(chaine2)
+
 }
 ```
 
-Dans cet exemple simple, on concatène les éléments de `tab` avec le séparateur `", "` entre chaque élément. Si on veut juste concaténer sans séparateur,il suffit de mettre `""`. 
-
-Pour plus d'informations sur cette bibliothèque standard : [Golang-strings](https://golang.org/pkg/strings/).
+Pour plus d'informations sur toutes les fonctions disponibles de cette bibliothèque standard : [Golang-strings](https://golang.org/pkg/strings/).
 
 #### Bibliothèque `time`
 
 La bibliothèque `time` propose des fonctions permettant de mesurer et d'afficher le temps. Celle-ci est comparable à `time.h` en C et à `ctime` en C++. 
+La fonction `Now()` permet de stocker l'instant. `Sub` permet de calculer avec précision la différence entre deux instants. 
+
+```go
+package main
+
+import "fmt"
+import "time"
+
+func main() {
+    t1 := time.Now()
+    fmt.Print(t1.Day(), " ", t1.Month(), " ", t1.Year(), " - ")
+    fmt.Println(t1.Hour(), ":", t1.Minute(), ":", t1.Second(), ":", t1.Nanosecond())
+
+    t2 := time.Now()
+    difference := t2.Sub(t1)
+    fmt.Println(difference)
+}
+```
 
 Pour plus d'informations sur cette bibliothèque : [Golang-time](https://golang.org/pkg/time/).
 
@@ -455,7 +485,7 @@ Il existe plusieurs bibliothèques tierces, qui sont pour la plupart une extensi
 
 #### Bibliothèque `debug`
 
-Cette bibliothèque est une librairie expérimentale qui permet au codeur d'applications Go, de gérer plus facilement le débuggage de ces programmes : [Golang-debug](https://godoc.org/golang.org/x/debug).
+Cette bibliothèque est une librairie expérimentale qui permet au développeur d'applications Go, de gérer plus facilement le débuggage de ses programmes : [Golang-debug](https://godoc.org/golang.org/x/debug).
 
 #### Bibliothèque `mobile`
 
