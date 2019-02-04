@@ -319,6 +319,29 @@ func main() {
 }
 ```
 
+### Ligne de commande et Arguments
+
+Il est possible en langage Go de récupérer les arguments tapés par l'utilisateur lors d'un appel d'un programme. Dans l'exemple ci dessous, on va d'abord compiler avec `go build commandes.go`. Puis, on va exécuter le programme avec par exemple `./commandes test1 test2 test3`. Ici, commandeTotale sera `[./commandes test1 test2 test3]` et commandesSansAppelProgr sera `[test1 test2 test3]`
+
+```go
+// filename : commandes.go
+
+package main
+
+import "fmt"
+import "os"
+
+func main() {
+    // os.Args récupére les différents mots constituant la commande
+    commandeTotale := os.Args
+    // os.Args[1:] récupère tous les mots sauf le premier (appel du programme)
+    commandeSansAppelProgr := os.Args[1:]
+
+    fmt.Println(commandeTotale)
+    fmt.Println(commandeSansAppelProgr)
+}
+```
+
 ## Bibliothèques du langage Go
 
 ### Principales bibliothèques standards
@@ -548,7 +571,7 @@ Pour pouvoir créer un projet modulaire en langage Go, il va falloir créer un d
 Dans notre exemple, nous allons créer le package `point` qui contiendra une structure `point` et une fonction d'affichage, puis, le package `projet` qui contiendra le main et qui appellera un point. 
 
 ```go
-/* $GOPATH/src/projet */
+/* $GOPATH/src/projet/projet.go */
 
 package main
 
@@ -562,7 +585,7 @@ func main() {
 ```
 
 ```go
-/* $GOPATH/src/point */
+/* $GOPATH/src/point/point.go */
 
 package point
 
@@ -582,6 +605,10 @@ Il est important de noter que :
 - les __majuscules__ en début de noms de champs de structure, de structures et de fonctions sont __primordiales__ s'il faut faire appel à un élément d'un package différent : c'est donc une **convention d'écriture** en Go.  
 - il faut créer __1 dossier PAR package__.
 - le nom que l'on donne après `package` est le dernier dossier dans lequel est le package : si `Point` était dans `$GOPATH/src/forme/basic/point`, son package sera `point`. 
+
+### Tests unitaires
+
+### Documentation
 
 
 ## Ressources d'apprentissage
