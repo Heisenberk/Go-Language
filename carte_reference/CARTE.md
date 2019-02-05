@@ -321,7 +321,7 @@ func main() {
 
 ### Ligne de commande et Arguments
 
-Il est possible en langage Go de récupérer les arguments tapés par l'utilisateur lors d'un appel d'un programme. Dans l'exemple ci dessous, on va d'abord compiler avec `go build commandes.go`. Puis, on va exécuter le programme avec par exemple `./commandes test1 test2 test3`. Ici, commandeTotale sera `[./commandes test1 test2 test3]` et commandesSansAppelProgr sera `[test1 test2 test3]`
+Il est possible en langage Go de récupérer les arguments tapés par l'utilisateur lors d'un appel d'un programme. Dans l'exemple ci dessous, on va d'abord compiler avec `go build commandes.go`. Puis, on va exécuter le programme avec par exemple `./commandes test1 test2 test3`. Ici, commandeTotale sera `[./commandes test1 test2 test3]` et commandesSansAppelProgr sera `[test1 test2 test3]`. 
 
 ```go
 // filename : commandes.go
@@ -599,6 +599,10 @@ type Point struct {
 func PrintPoint (p Point) string {
     return "(" + strconv.Itoa(p.X) + "," + strconv.Itoa(p.Y) + ")"
 }
+
+func PrintPointReverse (p Point) string {
+    return "(" + strconv.Itoa(p.Y) + "," + strconv.Itoa(p.X) + ")"
+}
 ```
 
 Il est important de noter que :
@@ -606,7 +610,44 @@ Il est important de noter que :
 - il faut créer __1 dossier PAR package__.
 - le nom que l'on donne après `package` est le dernier dossier dans lequel est le package : si `Point` était dans `$GOPATH/src/forme/basic/point`, son package sera `point`. 
 
+Il est maintenant nécessaire de compiler et exécuter cet exemple : pour cela, il faut aller dans l'arborescence `$GOPATH/`
+Pour compiler la librairie `point`, on lance la commande suivante `go build point/`. Enfin, pour compiler le main du programme, on utilise `go install projet/`. Ainsi, un exécutable `projet` apparaîtra dans le dossier `$GOPATH/bin/`, qu'on exécutera avec `./bin/projet`. 
+
 ### Tests unitaires
+
+Il est possible en langage Go de réaliser des tests unitaires afin d'augmenter la confiance de programmeur pour des portions de code. On peut donc tester des fonctions. Cela est notamment comparable à `Junit` en langage Java ou à `CUnit` en langage C. 
+
+Pour tester les fonctions du fichier `XXX.go` du package `YYY`, il suffit de créer un fichier `test_XXX.go` dans le package `YYY`. Dans le précédent exemple, on a donc créer `test_point.go` :
+
+```go
+/* $GOPATH/src/point/test_point.go */
+
+package point
+
+import "testing"
+
+func TestPrintPoint(t *testing.T) {
+    p := Point{X : 3, Y: 2}
+    chaineCalcul := PrintPoint(p)
+    chaineResultat := "(3,2)"
+    if chaineCalcul != chaineResultat {
+       t.Errorf("PrintPoint() incorrect : calcule: \"%s\", et veut: \"%s\".", chaineCalcul, chaineResultat)
+    }
+}
+
+func TestPrintPointReverse(t *testing.T) {
+    p := Point{X : 3, Y: 2}
+    chaineCalcul := PrintPointReverse(p)
+    chaineResultat := "(2,3)"
+    if chaineCalcul != chaineResultat {
+       t.Errorf("PrintPoint() incorrect : calcule: \"%s\", et veut: \"%s\".", chaineCalcul, chaineResultat)
+    }
+}
+```
+Il est important de noter ici que : 
+- il est nécessaire que le package du fichier test doit être identique à celui du fichier testé. 
+- la signature d'une fonction test doit être `func TestZZZ(t *testing.T)`
+- `Errorf(...)` permet de gérer l'affichage lors d'un échec d'un test unitaire. 
 
 ### Documentation
 
