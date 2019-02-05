@@ -11,6 +11,12 @@ type Polynome struct {
     Degre int
 }
 
+type Elem struct{
+
+	Coef int
+	Degre int 
+	Suiv *Elem
+}
 	
 
 func Init_polynome() Polynome{
@@ -152,8 +158,70 @@ func Somme_polynome(P1 Polynome,P2 Polynome) Polynome{
 }
 
 
-func main(){
+func Initialise_polynome() *Elem {
+	var l *Elem
 
+	l=&Elem{0,0,nil}
+
+	return l
+}
+
+func Est_vide(l *Elem) bool {
+
+	if l==nil {
+
+		return true
+
+	}
+	if l.Coef==0 && l.Degre==0 && l.Suiv==nil{
+		return true
+	}
+
+	return false
+
+}
+
+func Insere_polynome(coef1 int,degre1 int,l *Elem) *Elem{
+
+	var ltmp *Elem
+
+	ltmp=l
+
+	e:=Elem{coef1,degre1,nil}
+
+	for ltmp.Suiv!=nil {
+
+		ltmp=ltmp.Suiv
+
+	}
+
+	ltmp.Suiv=&e
+
+	return ltmp
+
+}
+
+func Affiche_list_polynome(l *Elem){
+
+	for l!=nil{
+
+		if l.Coef!=0 {
+
+		fmt.Print(l.Coef,"x^",l.Degre," + ")
+
+		}
+
+		l=l.Suiv
+
+	}
+
+	fmt.Print("0")
+
+	fmt.Println()
+
+}
+func main(){
+/*
 	var P Polynome
 
 	var P3 Polynome
@@ -181,8 +249,18 @@ func main(){
 	fmt.Println(P4)
 
 	Affiche_polynome(P)
+*/
+	var l *Elem
+	
+	l=Initialise_polynome()
 
+	l=Insere_polynome(1,1,l)
 
+	l=Insere_polynome(6,5,l)
+
+	Affiche_list_polynome(l)
+
+	//fmt.Println(l.Suiv)
 
 
 	//var n int  
