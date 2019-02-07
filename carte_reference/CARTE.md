@@ -2,10 +2,6 @@
 
 ## Bases du langage 
 
-
-
-[My page](coucou.md)
-
 ### Variable
 
 Une variable permet de déclarer une variable modifiable à tout moment. 
@@ -652,6 +648,36 @@ Il est important de noter ici que :
 ### Documentation
 
 La documentation d'un programme Go est possible, notamment avec l'outil `Godoc`. Ainsi, il permet de générer une documentation précise (comparable à Javadoc en Java ou Doxygen en C). Pour cela, on laisse des commentaires de la forme `// Commentaire.` au dessus de chaque structure, package et fonctions. Lorsque les commentaires sont bien effectués, on génère la documentation avec la commande suivante : `godoc -http=:8080` et on y accède par un navigateur avec `localhost:8080/pkg/[package]` avec `[package]`le nom du package dont l'on veut voir la documentation. 
+
+```go
+// Package point concernant tout ce qui concerne l'entité Point. 
+package point
+
+import "strconv"
+
+// Point est une structure ayant une abscisse et une ordonnée. 
+type Point struct {
+    // X abscisse du point
+    X int
+
+    // Y ordonnee du point
+    Y int
+}
+
+// PrintPoint affiche l'abscisse suivie de l'ordonnée. 
+func PrintPoint (p Point) string {
+    return "(" + strconv.Itoa(p.X) + "," + strconv.Itoa(p.Y) + ")"
+}
+
+// PrintPointReverse affiche l'ordonnée suivie de l'abscisse. 
+func PrintPointReverse (p Point) string {
+    return "(" + strconv.Itoa(p.Y) + "," + strconv.Itoa(p.X) + ")"
+}
+```
+
+Ici, il est utile de visualiser la documentation du package `point`. Pour cela, on va sur `localhost:8080/pkg/point` et on obtient : 
+
+![Documentation point.go](pic/point.png "Documentation de point.go")
 
 Pour plus d'informations sur `Godoc` : [Godoc](https://godoc.org/golang.org/x/tools/cmd/godoc)
 
