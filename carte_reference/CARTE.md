@@ -1,3 +1,5 @@
+|   | <img src="pics/logo_carte.png" alt="Carte de référence"> | <a href="EXOS.md"> <img src="pics/logo_exos.png" alt="Exercices d'apprentissage"></a> | <a href="APPLI.md"> <img src="pics/logo_appli.png" alt="Application"></a> |
+
 # Carte de référence du langage Go
 
 ## Bases du langage 
