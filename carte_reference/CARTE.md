@@ -651,6 +651,9 @@ Il est important de noter ici que :
 
 ### Documentation
 
+La documentation d'un programme Go est possible, notamment avec l'outil `Godoc`. Ainsi, il permet de générer une documentation précise (comparable à Javadoc en Java ou Doxygen en C). Pour cela, on laisse des commentaires de la forme `// Commentaire.` au dessus de chaque structure, package et fonctions. Lorsque les commentaires sont bien effectués, on génère la documentation avec la commande suivante : `godoc -http=:8080` et on y accède par un navigateur avec `localhost:8080/pkg/[package]` avec `[package]`le nom du package dont l'on veut voir la documentation. 
+
+Pour plus d'informations sur `Godoc` : [Godoc](https://godoc.org/golang.org/x/tools/cmd/godoc)
 
 ## Ressources d'apprentissage
 
