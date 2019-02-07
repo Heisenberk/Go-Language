@@ -1,4 +1,5 @@
-|   | <a href="carte_reference/CARTE.md"> <img src="pics/logo_carte.png"></a> | <a href="EXOS.md"> <img src="pics/logo_exos.png" alt="Exercices d'apprentissage"></a> | <a href="APPLI.md"> <img src="pics/logo_appli.png" alt="Application"></a> |
+|   | <img src="pics/logo_carte.png"> | <img src="pics/logo_exos.png" alt="Exercices d'apprentissage"> | <img src="pics/logo_appli.png" alt="Application"> |
+|   | [Carte](carte_reference/CARTE.md) |   |   |
 
 # Découverte du Langage Go
 
