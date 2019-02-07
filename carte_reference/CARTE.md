@@ -1,4 +1,4 @@
-|   | <img src="pics/logo_carte.png" alt="Carte de référence"> | <img src="pics/logo_exos.png" alt="Exercices d'apprentissage"> |  <img src="pics/logo_appli.png" alt="Application"> |
+|   | <img src="../pics/logo_carte.png" alt="Carte de référence"> | <img src="../pics/logo_exos.png" alt="Exercices d'apprentissage"> |  <img src="../pics/logo_appli.png" alt="Application"> |
 |   | [Carte](carte_reference/CARTE.md) |   |   |
 
 # Carte de référence du langage Go
