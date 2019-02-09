@@ -292,8 +292,101 @@ func Affiche_list_polynome(l *Elem){
 	fmt.Println()
 
 }
+func Tri_permutation(l *Elem) *Elem{
+
+	ltemp:=l
+
+	var nb_elem int 
+
+	var l2 *Elem
+
+	nb_elem=0
+
+	if Est_vide(l)==true {
+
+		nb_elem=0
+
+	}else{
+
+		nb_elem=nb_elem + 1
+
+		for l.Suiv!=nil{
+
+			nb_elem=nb_elem +1 
+
+			l =l.Suiv
+
+		}
+	}
+	fmt.Println(nb_elem)
+
+	for i:=nb_elem-1 ;i >0 && l.Suiv!=nil; i-- {
+
+		l2=l
+
+		if l.Degre> l.Suiv.Degre{
+
+			ltemp=l.Suiv
+
+			l.Suiv=l.Suiv.Suiv
+
+			ltemp.Suiv=l
+
+			l2=ltemp
+
+			l=l2
+
+		}
+fmt.Println(i)
+		for j:=0 ; j< i-1 ;j++{
+
+			if l.Suiv.Degre>l.Suiv.Suiv.Degre {
+
+				ltemp=l.Suiv
+
+				l.Suiv=l.Suiv.Suiv
+
+				ltemp.Suiv=l.Suiv.Suiv
+
+				l.Suiv.Suiv=ltemp
+
+			}
+			l=l.Suiv
+
+		}
+
+	}
+
+
+
+	return l2
+}
+
+func Insere_Occurence_On(P *Elem,coef1 int,degre1 int) *Elem{
+
+	temp:=P
+
+	for Est_vide(temp)==false {
+
+		if temp.Degre==degre1 {
+
+			temp.Coef=temp.Coef+coef1
+
+			return P
+
+		}
+
+		temp=temp.Suiv
+
+	}
+
+	P=Insere_polynome(coef1,degre1,P)
+
+	return P
+}
 func main(){
 
+/*
 	var P Polynome
 
 	var P3 Polynome
@@ -308,7 +401,7 @@ func main(){
 
 	fmt.Println("------------------------")
 
-	//P3=Inserer_polynome(9,1,P3)
+	P3=Inserer_polynome(9,1,P3)
 
 	P=Inserer_polynome(2,5,P)
 
@@ -331,7 +424,7 @@ func main(){
 	Affiche_polynome(P4)
 
 	//fmt.Println(P4.Tab)
-/*
+*/
 	var l *Elem
 	
 	l=Initialise_polynome()
@@ -340,13 +433,17 @@ func main(){
 
 	l=Insere_polynome(6,5,l)
 
+	
+
+	l=Insere_Occurence_On(l,6,5)
+
 	Affiche_list_polynome(l)
 
 	//fmt.Println(l.Suiv)
 
 
 	//var n int  
-*/
+
 
 
 	
