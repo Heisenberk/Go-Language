@@ -157,7 +157,79 @@ func Somme_polynome(P1 Polynome,P2 Polynome) Polynome{
 
 }
 
+func Produit_polynome(P1 Polynome,P2 Polynome) Polynome{
 
+	var P3 Polynome
+
+	if len(P1.Tab)>len(P2.Tab) {
+
+		P3.Tab=make([]int,len(P1.Tab)*len(P1.Tab))
+
+	}else{
+
+		P3.Tab=make([]int,len(P2.Tab)*len(P2.Tab))
+
+	}
+
+	var etat1 int
+
+	var etat2 int
+
+	for i:=0 ; i<len(P1.Tab) ; i++{
+
+		if P1.Tab[i]!=0 {
+
+			etat1=1
+
+		}
+
+	}
+		for j:=0 ; j<len(P2.Tab) ; j++{
+
+		if P2.Tab[j]!=0 {
+
+			etat2=1
+
+		}
+
+	}
+
+	if ((etat1==1) && (etat2==0)){
+
+		return P3
+
+	}
+
+	if ((etat1==0) && (etat2==1)){
+
+		return P3
+
+	}
+
+	if((etat1==0) && (etat2==0)){
+
+		return P3
+
+	}
+
+
+
+		for i:=0 ; i<len(P1.Tab); i++{
+
+				for j := 0; j < len(P2.Tab); j++ {
+
+					if P1.Tab[i]!=0 && P2.Tab[j]!=0{
+
+						P3.Tab[i+j]=P1.Tab[i] * P2.Tab[j]
+
+					}
+
+	}
+
+}
+	
+	return P3
+}
 func Initialise_polynome() *Elem {
 	var l *Elem
 
@@ -221,7 +293,7 @@ func Affiche_list_polynome(l *Elem){
 
 }
 func main(){
-/*
+
 	var P Polynome
 
 	var P3 Polynome
@@ -232,11 +304,11 @@ func main(){
 
 
 
-	Affiche_polynome(P)
+	fmt.Println(P3)
 
 	fmt.Println("------------------------")
 
-	P3=Inserer_polynome(9,0,P3)
+	//P3=Inserer_polynome(9,1,P3)
 
 	P=Inserer_polynome(2,5,P)
 
@@ -244,12 +316,22 @@ func main(){
 
 	P=Inserer_polynome(6,2,P)
 
-	P4:=Somme_polynome(P,P3)
+	P4:=Produit_polynome(P3,P)
 
-	fmt.Println(P4)
+	//fmt.Println(P4)
 
 	Affiche_polynome(P)
-*/
+
+		fmt.Println("------------------------")
+
+	Affiche_polynome(P3)
+
+		fmt.Println("P3------------------------")
+
+	Affiche_polynome(P4)
+
+	//fmt.Println(P4.Tab)
+/*
 	var l *Elem
 	
 	l=Initialise_polynome()
@@ -264,7 +346,7 @@ func main(){
 
 
 	//var n int  
-
+*/
 
 
 	
