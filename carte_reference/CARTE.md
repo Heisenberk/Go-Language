@@ -17,7 +17,7 @@ a := 1
 
 ### Constante 
 
-Une constante permet de déclarer une constante (non modifiable).
+Une constante permet de déclarer un élément non modifiable.
     
 ```go
 const pi float32 = 3.14
@@ -189,7 +189,7 @@ delete(m, "clement")
 
 ### identificateur _
 
-Cet identificateur permet de déclarer une variable permettant de tester la présence d'une clé (true ou false).
+Cet identificateur `_` permet de déclarer une variable que l'on veut ignorer. Ici, l'appel `m["clement"]` permet de savoir si une valeur ayant la clé "clement" est présente (true ou false pour la variable test1). Le premier argument permet de récupérer sa position, or, dans notre exemple, cela en est d'aucune utilité : c'est pour cela que cela est ignoré grâce à `_`. 
     
 ```go
 m := make(map[string]int)
@@ -266,7 +266,7 @@ func main() {
 
 ### Méthode 
 
-Une méthode correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure).
+Une méthode correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure). On peut la comparer aux méthodes de classes en langage Java. 
     
 ```go
 func (e etudiant) change_num (nouveau int) etudiant{
@@ -364,7 +364,7 @@ func main() {
     /* 
         affiche "test = 2"
         puis attend l'entrée de l'utilisateur
-        Si l'utilisateur écrit "3" alors l'affichage sera "entree : 3"
+        Si l'utilisateur écrit "3" alors l'affichage sera "entrée : 3"
     */
 }
 ```
@@ -559,6 +559,7 @@ Ainsi, on peut effectuer la commande `go [commande] [arguments]`. Il existe plus
 - `get` pour télécharger de nouvelles librairies Go. 
 - `install` pour installer de nouvelles librairies Go. 
 - `test` pour effectuer les tests unitaires. 
+- `fmt` pour indenter correctement les fichiers .go mis en argument. 
 
 Pour plus d'informations, notamment sur les commandes ainsi que sur les installations et manipulations à effectuer : [CommandesInstallationsGo](https://golang.org/cmd/go/)
 
@@ -616,7 +617,7 @@ Pour compiler la librairie `point`, on lance la commande suivante `go build poin
 
 Il est possible en langage Go de réaliser des tests unitaires afin d'augmenter la confiance de programmeur pour des portions de code. On peut donc tester des fonctions. Cela est notamment comparable à `Junit` en langage Java ou à `CUnit` en langage C. 
 
-Pour tester les fonctions du fichier `XXX.go` du package `YYY`, il suffit de créer un fichier `test_XXX.go` dans le package `YYY`. Dans le précédent exemple, on a donc créer `test_point.go` :
+Pour tester les fonctions du fichier `XXX.go` du package `YYY`, il suffit de créer un fichier `test_XXX.go` dans le package `YYY`. Dans le précédent exemple, on a donc créer `test_point.go`. Pour pouvoir exécuter les tests unitaires associés au module `point`, il suffit te faire la commande `go test point`. 
 
 ```go
 /* $GOPATH/src/point/test_point.go */
