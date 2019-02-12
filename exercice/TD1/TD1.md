@@ -3,26 +3,27 @@
 
 But : Apprendre l'environnement et manipuler les différentes bases du langage de programmation Go. 
 Difficulté : Facile
+Connaissances à avoir : Variables, Conditions, Fonctions,  Bibliothèques standards, ...
 
-## Exercice 1
+## Exercice 1 : Installation
 
-Avant de programmer en langage Go, il faut installer l'environnement. Pour cela, allez sur la documentation officielle de [Golang](https://golang.org/doc/install).
+Avant de programmer en langage Go, il faut installer l'environnement. Pour cela, aller sur la documentation officielle de [Golang](https://golang.org/doc/install).
 
-1. Installez l'environnement pour programmer en langage Go. 
+1. Installer l'environnement pour programmer en langage Go. 
 
-2. Vérifiez que la compilation et l'exécution d'un programme basique "Hello, world!" fonctionne correctement. 
+2. Vérifier que la compilation et l'exécution d'un programme basique "Hello, world!" fonctionne correctement. 
 
-Solutions: 
+Solution: 
 
-1. Allez sur le site de Golang pour récupérer le fichier `.tar.gz` (pour Linux). Par exemple, la dernière version disponible est `go1.11.5.linux-amd64.tar.gz`. Puis, tapez la commande suivante pour installer l'environnement de `Go`: 
+1. Aller sur le site de Golang pour récupérer le fichier `.tar.gz` (pour Linux). Par exemple, la dernière version disponible est `go1.11.5.linux-amd64.tar.gz`. Puis, taper la commande suivante pour installer l'environnement de `Go`: 
 ```shell
 tar -C /usr/local -xzf go1.11.5.linux-amd64.tar.gz
 ```
-Ensuite, allez dans le fichier `/home/user/.profile` et ajoutez à la fin du fichier la ligne `PATH="/usr/local/go/bin:$PATH"`. 
-Puis, pour installer les commandes `go`, tapez la commande `sudo apt-get install golang-go`.
-Enfin, tapez la commande `go env` et vérifier le chemin pour `$GOPATH`. Ce chemin va correspondre au répertoire où il faudra programmer en langage Go. 
+Ensuite, aller dans le fichier `/home/user/.profile` et ajouter à la fin du fichier la ligne `PATH="/usr/local/go/bin:$PATH"`. 
+Puis, pour installer les commandes `go`, taper la commande `sudo apt-get install golang-go`.
+Enfin, taper la commande `go env` et vérifier le chemin pour `$GOPATH`. Ce chemin va correspondre au répertoire où il faudra programmer en langage Go. 
 
-2. Dans le dossier `$GOPATH/src/`, créez le dossier `hello` dans lequel il faudra créer le fichier `hello.go`. 
+2. Dans le dossier `$GOPATH/src/`, créer le dossier `hello` dans lequel il faudra créer le fichier `hello.go`. 
 
 ```go
 package main
@@ -34,4 +35,59 @@ func main() {
 }
 ```
 Pour compiler, il suffit de taper `go build hello`, puis, pour exécuter, faire `./hello`. 
+
+## Exercice 2 : Conversions
+
+Ecrire un programme qui convertit un temps donné en secondes, minutes et secondes (avec l'accord des pluriels). Le calcul doit se faire dans une fonction et doit retourner, par exemple, `3620 correspond à 1 heure, 0 minute et 20 secondes`. 
+
+Note : Utiliser la bibliothèque standard `strconv` pour convertir un entier en string. 
+
+Solution : 
+
+Créer une fonction qui prend un entier en paramètre et qui renvoie un string. Calculer dans cette fonction les différentes valeurs des secondes, des minutes et des heures. Utiliser les conditions pour savoir si il y a une ou plusieurs heures, minutes et secondes. Convertir les entiers en string avec `strconv.Itoa(...)`. Retourner la concaténation de tous les éléments et appeler cette fonction dans le main. 
+
+```go
+package main
+
+import "fmt"
+import "strconv"
+
+func conversion (val int) string {
+	var heure int = val / 3600 
+	var minute int = (val % 3600) / 60
+	var seconde int = val % 60
+
+	var phrase string = " correspond à "
+
+	var heure_str string;
+	var minute_str string;
+	var seconde_str string;
+
+	if heure <= 1 {
+		heure_str = " heure, "
+	}else{
+		heure_str = " heures, "
+	} 
+
+	if minute <= 1 {
+		minute_str = " minute, "
+	}else{
+		minute_str = " minutes, "
+	} 
+
+	if seconde <= 1 {
+		seconde_str = " seconde. "
+	}else{
+		seconde_str = " secondes. "
+	} 
+	
+	return strconv.Itoa(val) + phrase + strconv.Itoa(heure) + heure_str + strconv.Itoa(minute) + minute_str + strconv.Itoa(seconde) + seconde_str;
+}
+
+
+func main() {
+	fmt.Println(conversion(3620))
+}
+```
+
 
