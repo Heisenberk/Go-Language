@@ -90,7 +90,85 @@ func main() {
 }
 ```
 
-## Exercice 3 : Primalité
+## Exercice 3 : Récursion
+
+Il est possible de faire des appels récursifs en langage Go. Fibonacci et Factorielle sont deux fonctions illustrant la récursivité. 
+
+1. Ecrire un programme récursif qui permet de calculer la `n` iéme valeur de la suite de Fibonacci. 
+
+2. Ecrire un programme récursif qui permet de calculer la factorielle de `n`.
+
+L'utilisateur du programme doit pouvoir entrer en paramètre d'arguments le nombre à calculer. 
+
+Solution : 
+
+1. 
+
+```go
+package main
+
+import "fmt"
+import "strconv"
+import "os"
+
+func fibonacci(n int) int {
+	if n < 2 {
+		return n
+	}
+	return fibonacci(n-2) + fibonacci(n-1)
+}
+
+func main() {
+	arg := os.Args[1:]
+	if len(arg) == 0 {
+		fmt.Println("Aucun argument. ")
+	}else {
+		val, err := strconv.Atoi(arg[0])
+		if err != nil {
+			fmt.Println("Argument invalide. ")
+		}else if val < 0 {
+			fmt.Println("Impossible de calculer la factorielle d'un nombre négatif. ")
+		}else {
+			fmt.Println(fibonacci(val))
+		}
+	}
+}
+```
+
+2. 
+```go
+package main
+
+import "fmt"
+import "strconv"
+import "os"
+
+func factorielle (n int) int {
+    if n == 0 {
+        return 1
+    }
+    return n * factorielle(n-1)
+}
+
+func main() {
+	arg := os.Args[1:]
+	if len(arg) == 0 {
+		fmt.Println("Aucun argument. ")
+	}else {
+		val, err := strconv.Atoi(arg[0])
+		if err != nil {
+			fmt.Println("Argument invalide. ")
+		}else if val < 0 {
+			fmt.Println("Impossible de calculer la factorielle d'un nombre négatif. ")
+		}else {
+			fmt.Println(factorielle(val))
+		}
+	}
+}
+```
+
+
+## Exercice 4 : Primalité
 
 Ecrire un fonction `primalite` qui teste de la manière la plus naïve possible la primalité d'un nombre, et une fonction `interpreter` qui retourne la chaîne de caractères affichée sur le terminal. L'utilisateur du programme doit pouvoir entrer en paramètre le nombre à tester. 
 
@@ -145,7 +223,7 @@ func main() {
 }
 ```
 
-## Exercice 4 : Nombres Amicaux
+## Exercice 5 : Nombres Amicaux
 
 Soit `n` et `m`, deux entiers positifs. `n` et `m` sont dit amis si la somme de tous les diviseurs de `n` (sauf `n` lui-même) est égale à `m` et si la somme de tous les diviseur de `m` (sauf `m` lui-même) est égale à `n`. 
 Ecrire un programme qui teste si deux entiers sont des nombres amis ou non. L'utilisateur du programme doit pouvoir entrer en paramètre le nombre à tester. 
