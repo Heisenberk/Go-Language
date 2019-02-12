@@ -7,7 +7,7 @@
 
 ### Variable
 
-Une variable permet de déclarer une variable modifiable à tout moment. 
+Une déclaration permet de créer une variable modifiable à tout moment. 
     
 ```go
 var a int = 1
@@ -39,7 +39,7 @@ Les manipulations arithmétiques (`+`, `-`, `*`, `/`, `%`, `++` et `--`), relati
 
 ### import
 
-Le mot clé `import` permet d'importer des fichiers tels que les bibliotheques standards (ex : `fmt`).
+Le mot clé `import` permet d'importer des modules tels que les bibliothèques standards (ex : `fmt`).
     
 ```go
 import "fmt"
@@ -189,7 +189,8 @@ delete(m, "clement")
 
 ### identificateur _
 
-Cet identificateur `_` permet de déclarer une variable que l'on veut ignorer. Ici, l'appel `m["clement"]` permet de savoir si une valeur ayant la clé "clement" est présente (true ou false pour la variable test1). Le premier argument permet de récupérer sa position, or, dans notre exemple, cela en est d'aucune utilité : c'est pour cela que cela est ignoré grâce à `_`. 
+Cet identificateur `_` permet de déclarer une variable que l'on veut ignorer. Ici, l'appel `m["clement"]` permet de savoir si une valeur ayant la clé "clement" est présente (true ou false pour la variable test1).
+Le premier argument permet de récupérer sa position, or, dans notre exemple, il ne nous est pas utile : il est donc ignoré grâce à `_`. 
     
 ```go
 m := make(map[string]int)
@@ -266,7 +267,7 @@ func main() {
 
 ### Méthode 
 
-Une méthode correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure). On peut la comparer aux méthodes de classes en langage Java. 
+Une méthode correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure). On peut la comparer aux méthodes du langage Java. 
     
 ```go
 func (e etudiant) change_num (nouveau int) etudiant{
@@ -565,7 +566,7 @@ Pour plus d'informations, notamment sur les commandes ainsi que sur les installa
 
 ### Compilation
 
-Lors des manipulations à effectuer, il a fallu, en autre, choisir un `$GOPATH` : il correspond au chemin où chercher les différentes dépendances (non standards). 
+Lors des manipulations à effectuer, il a fallu, entre autre, choisir un `$GOPATH` : il correspond au chemin où chercher les différentes dépendances (non standards). 
 Pour pouvoir créer un projet modulaire en langage Go, il va falloir créer un dossier `$GOPATH/src/pkg` avec `pkg` le nom du package à créer. 
 
 Dans notre exemple, nous allons créer le package `point` qui contiendra une structure `point` et une fonction d'affichage, puis, le package `projet` qui contiendra le main et qui appellera un point. 
@@ -611,13 +612,13 @@ Il est important de noter que :
 - le nom que l'on donne après `package` est le dernier dossier dans lequel est le package : si `Point` était dans `$GOPATH/src/forme/basic/point`, son package sera `point`. 
 
 Il est maintenant nécessaire de compiler et exécuter cet exemple : pour cela, il faut aller dans l'arborescence `$GOPATH/`
-Pour compiler la librairie `point`, on lance la commande suivante `go build point/`. Enfin, pour compiler le main du programme, on utilise `go install projet/`. Ainsi, un exécutable `projet` apparaîtra dans le dossier `$GOPATH/bin/`, qu'on exécutera avec `./bin/projet`. 
+Pour compiler la librairie `point`, on lance la commande suivante `go build point/`. Enfin, pour compiler le programme principal, on utilise `go install projet/`. Ainsi, un exécutable `projet` apparaîtra dans le dossier `$GOPATH/bin/`, qu'on exécutera avec `./bin/projet`. 
 
 ### Tests unitaires
 
 Il est possible en langage Go de réaliser des tests unitaires afin d'augmenter la confiance de programmeur pour des portions de code. On peut donc tester des fonctions. Cela est notamment comparable à `Junit` en langage Java ou à `CUnit` en langage C. 
 
-Pour tester les fonctions du fichier `XXX.go` du package `YYY`, il suffit de créer un fichier `test_XXX.go` dans le package `YYY`. Dans le précédent exemple, on a donc créer `test_point.go`. Pour pouvoir exécuter les tests unitaires associés au module `point`, il suffit te faire la commande `go test point`. 
+Pour tester les fonctions du fichier `XXX.go` du package `YYY`, il suffit de créer un fichier `test_XXX.go` dans le package `YYY`. Dans le précédent exemple, on a donc créer `test_point.go`. Pour pouvoir exécuter les tests unitaires associés au module `point`, il suffit de faire la commande `go test point`. 
 
 ```go
 /* $GOPATH/src/point/test_point.go */
@@ -645,13 +646,13 @@ func TestPrintPointReverse(t *testing.T) {
 }
 ```
 Il est important de noter ici que : 
-- il est nécessaire que le package du fichier test doit être identique à celui du fichier testé. 
+- le package du fichier test doit être identique à celui du fichier testé. 
 - la signature d'une fonction test doit être `func TestZZZ(t *testing.T)`
 - `Errorf(...)` permet de gérer l'affichage lors d'un échec d'un test unitaire. 
 
 ### Documentation
 
-La documentation d'un programme Go est possible, notamment avec l'outil `Godoc`. Ainsi, il permet de générer une documentation précise (comparable à Javadoc en Java ou Doxygen en C). Pour cela, on laisse des commentaires de la forme `// Commentaire.` au dessus de chaque structure, package et fonctions. Lorsque les commentaires sont bien effectués, on génère la documentation avec la commande suivante : `godoc -http=:8080` et on y accède par un navigateur avec `localhost:8080/pkg/[package]` avec `[package]`le nom du package dont l'on veut voir la documentation. 
+La documentation d'un programme Go est possible, notamment avec l'outil `Godoc`. Ainsi, il permet de générer une documentation précise (comparable à Javadoc en Java ou Doxygen en C). Pour cela, on laisse des commentaires de la forme `// Commentaire.` au dessus de chaque structure, package et fonction. Lorsque les commentaires sont bien effectués, on génère la documentation avec la commande suivante : `godoc -http=:8080` et on y accède par un navigateur avec `localhost:8080/pkg/[package]` avec `[package]`le nom du package dont l'on veut voir la documentation. 
 
 ```go
 // Package point concernant tout ce qui concerne l'entité Point. 
