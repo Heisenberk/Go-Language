@@ -1,2 +1,0 @@
-1/ Soit n et m, deux entiers positifs. n et m sont dit amis si la somme de tous les diviseur de n ( sauf n lui-même ) est égale à m et si la somme de tous les diviseur de m (sauf m lui-même ) est égale à n 
-Ecrire une fonction qui teste si deux entiers sont des nombres amis ou non 
