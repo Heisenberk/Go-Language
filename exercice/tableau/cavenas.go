@@ -8,13 +8,17 @@ import (
     "time"
 )
 
-// This `person` struct type has `name` and `age` fields.
+
 type Graphe struct {
-    Nombre_sommet int 
+
+    Nombre_sommet int
+
     Matrice_adjacent [][]int
+
 }
 
 func Init_graphe(n int) Graphe {
+
     var g Graphe
 
     g.Nombre_sommet=n
@@ -24,9 +28,10 @@ func Init_graphe(n int) Graphe {
     for i:=0 ; i< n ; i++ {
 
         g.Matrice_adjacent[i]=make([]int,n)
+
     }
 
-return g
+    return g
 
 }
 func Affichage(g Graphe){
@@ -50,10 +55,10 @@ func Affichage(g Graphe){
 
     }
 
-
 }
 
 func Degre (g Graphe,n int) int {
+
     var compteur  int 
 
     for i := 0 ; i<g.Nombre_sommet; i++ {
@@ -83,6 +88,7 @@ func Alea (n int) Graphe {
     }
 
     return g
+    
 } 
 
 func Cycle_graphe (n int) Graphe {

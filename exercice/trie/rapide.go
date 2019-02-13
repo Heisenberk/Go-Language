@@ -13,6 +13,7 @@ func rapide(left []int, right []int) []int {
   var tab = make([]int, taille)
 
    i := 0
+
    j := 0
 
   for i < len(left) && j < len(right) {
@@ -22,11 +23,13 @@ func rapide(left []int, right []int) []int {
     if left[i] <= right[j] {
 
       tab[i+j] = left[i]
+
       i++
 
     } else {
 
       tab[i+j] = right[j]
+
       j++
 
     }
@@ -34,14 +37,10 @@ func rapide(left []int, right []int) []int {
     
 
   }
-
-
-
+  
   for i < len(left) { tab[i+j] = left[i]; i++ }
 
   for j < len(right) { tab[i+j] = right[j]; j++ }
-
-
 
   return tab
 }
