@@ -8,7 +8,7 @@ func main() {
 	s[1] = "b"
 	fmt.Println(s)
 
-	/* ou directement */ 
+	// ou directement
 
 	t := []string{"a", "b"}
 	fmt.Println(t)
