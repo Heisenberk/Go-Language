@@ -20,6 +20,7 @@ fmt.Println(b)
 ```
 
 Pour plus d'informations sur la déclaration de variables : [Variables](https://golang.org/ref/spec#Variables)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fXhZj0Klfl5)
 
 
@@ -32,6 +33,7 @@ const pi float32 = 3.14
 ```
 
 Pour plus d'informations sur la déclaration de constantes : [Constantes](https://golang.org/ref/spec#Constants)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/In_myhSkJjF)
 
 
@@ -47,7 +49,6 @@ Il existe plusieurs types en langage Go :
 
 Les manipulations arithmétiques (`+`, `-`, `*`, `/`, `%`, `++` et `--`), relationnelles (`==`, `!=`, `>`, `<`, `>=` et `<=`) et binaires (`<<`, `>>`, `&`, `|`, `^`) fonctionnent en Go. 
 
-
 Pour plus d'informations sur les types : [Type](https://golang.org/ref/spec#Types)
 
 
@@ -59,6 +60,7 @@ Le mot clé `import` permet d'importer des modules tels que les bibliothèques s
 import "fmt"
 ```
 Pour plus d'informations sur l'import d'une bibliothèque : [Import](https://golang.org/ref/spec#Import_declarations)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/9j-MiWXan-2)
     
 
@@ -77,6 +79,7 @@ if a < 0{
 }
 ```
 Pour plus d'informations sur les conditions : [Condition](https://golang.org/ref/spec#If_statements)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fWHXKDPXkyu)
 
 
@@ -98,6 +101,7 @@ for i < 10 {
 }
 ```
 Pour plus d'informations sur les boucles : [Boucle](https://golang.org/ref/spec#For_statements)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/lOZiv2GZ6gl)
 
 
@@ -114,6 +118,7 @@ for i:=0; i < 10; i++ {
 }
 ```
 Pour plus d'informations sur les break : [Break](https://golang.org/ref/spec#Break_statements)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/yxKc5C3hnFz)
 
 
@@ -131,6 +136,7 @@ switch a%2 {
 }
 ```
 Pour plus d'informations sur les switchs : [Switch](https://golang.org/ref/spec#Switch_statements)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3YV0JGZly9B)
 
 
@@ -148,6 +154,7 @@ b[1]=1
 b := [2]int{0, 1}
 ```
 Pour plus d'informations sur les tableaux : [Tableau](https://golang.org/ref/spec#Index_expressions)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/sjUW6wQfXT9)
 
 
@@ -165,6 +172,7 @@ s[1] = "b"
 s := []string{"a", "b"}
 ```
 Pour plus d'informations sur les slices : [Slice](https://golang.org/ref/spec#Slice_expressions)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/P2lsEJUNiaQ)
 
 ### len()
@@ -215,6 +223,7 @@ m["mehdi"] = 1
 m["clement"] = 2
 ```
 Pour plus d'informations sur les maps : [Map](https://golang.org/ref/spec#Map_types)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/7xQS9cJFnhl)
 
 
@@ -281,6 +290,7 @@ func main() {
 }
 ```
 Pour plus d'informations sur les fonctions : [Fonction](https://golang.org/ref/spec#Function_types)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/6esO9svFjH7)
 
 
@@ -300,6 +310,7 @@ func main() {
 }
 ```
 Pour plus d'informations sur les pointeurs : [Pointeur](https://golang.org/ref/spec#Pointer_types)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/Wqvp7Xu9YUq)
 
 
@@ -319,6 +330,7 @@ func main() {
 }
 ```
 Pour plus d'informations sur les structures : [Structure](https://golang.org/ref/spec#Struct_types)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DVFLQEO4O42)
 
 
@@ -339,6 +351,7 @@ func main() {
 }
 ```
 Pour plus d'informations sur les méthodes : [Méthode](https://golang.org/ref/spec#Method_declarations)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/dsDZ7ONTMP_2)
 
 
@@ -379,6 +392,7 @@ func main() {
 }
 ```
 Pour plus d'informations sur les interfaces : [Interface](https://golang.org/ref/spec#Interface_types)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3k2Grm3xwGW)
 
 
@@ -404,7 +418,7 @@ func main() {
     fmt.Println(commandeSansAppelProgr)
 }
 ```
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/ttWPbtEUNEX)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/STcdf9y1BRr)
 
 
 ## Bibliothèques du langage Go
@@ -434,7 +448,8 @@ func main() {
     */
 }
 ```
-Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-fmt](https://golang.org/pkg/fmt/). 
+Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-fmt](https://golang.org/pkg/fmt/) 
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/s5GTQIBgsfc)
 
 #### Bibliothèque `errors`
@@ -472,7 +487,8 @@ func main() {
     verifie_positif(12.0)
 }
 ```
-Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-errors](https://golang.org/pkg/errors/).
+Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-errors](https://golang.org/pkg/errors/)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/iXRQ7ujdzjp)
 
 
@@ -505,7 +521,8 @@ func main() {
 }
 ```
 
-Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-os](https://golang.org/pkg/os/).
+Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-os](https://golang.org/pkg/os/)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DrTAOAgrvvg)
 
 
@@ -536,7 +553,8 @@ func main(){
 
 }
 ```
-Pour plus d'informations, notamment la gestion des retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/). 
+Pour plus d'informations, notamment la gestion des retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/uQK5zoz95-y)
 
 
@@ -571,7 +589,8 @@ func main() {
 }
 ```
 
-Pour plus d'informations sur toutes les fonctions disponibles de cette bibliothèque standard : [Golang-strings](https://golang.org/pkg/strings/).
+Pour plus d'informations sur toutes les fonctions disponibles de cette bibliothèque standard : [Golang-strings](https://golang.org/pkg/strings/)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/HpxnyM4SZyP)
 
 #### Bibliothèque `time`
@@ -596,7 +615,8 @@ func main() {
 }
 ```
 
-Pour plus d'informations sur cette bibliothèque : [Golang-time](https://golang.org/pkg/time/).
+Pour plus d'informations sur cette bibliothèque : [Golang-time](https://golang.org/pkg/time/)
+
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/AnoLszErs2i)
 
 ### Principales bibliothèques tierces
@@ -685,7 +705,7 @@ Il est important de noter que :
 Il est maintenant nécessaire de compiler et exécuter cet exemple : pour cela, il faut aller dans l'arborescence `$GOPATH/`
 Pour compiler la librairie `point`, on lance la commande suivante `go build point/`. Enfin, pour compiler le programme principal, on utilise `go install projet/`. Ainsi, un exécutable `projet` apparaîtra dans le dossier `$GOPATH/bin/`, qu'on exécutera avec `./bin/projet`. 
 
-Pour exécuter l'exemple : [Playground](carte_reference/exemples/compilation.zip)
+Pour télécharger l'exemple : [ZIP](exemples/compilation.zip)
 
 ### Tests unitaires
 
@@ -723,7 +743,7 @@ Il est important de noter ici que :
 - la signature d'une fonction test doit être `func TestZZZ(t *testing.T)`
 - `Errorf(...)` permet de gérer l'affichage lors d'un échec d'un test unitaire. 
 
-Pour exécuter l'exemple : [Playground](carte_reference/exemples/tests_unitaires.zip)
+Pour télécharger l'exemple : [ZIP](exemples/tests_unitaires.zip)
 
 ### Documentation
 
