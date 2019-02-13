@@ -435,6 +435,7 @@ func main() {
 }
 ```
 Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-fmt](https://golang.org/pkg/fmt/). 
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/s5GTQIBgsfc)
 
 #### Bibliothèque `errors`
 
@@ -472,6 +473,7 @@ func main() {
 }
 ```
 Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-errors](https://golang.org/pkg/errors/).
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/iXRQ7ujdzjp)
 
 
 #### Bibliothèque `os`
@@ -504,6 +506,7 @@ func main() {
 ```
 
 Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-os](https://golang.org/pkg/os/).
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DrTAOAgrvvg)
 
 
 #### Bibliothèque `io`
@@ -534,6 +537,7 @@ func main(){
 }
 ```
 Pour plus d'informations, notamment la gestion des retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/). 
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/uQK5zoz95-y)
 
 
 #### Bibliothèque `strings`
@@ -568,6 +572,7 @@ func main() {
 ```
 
 Pour plus d'informations sur toutes les fonctions disponibles de cette bibliothèque standard : [Golang-strings](https://golang.org/pkg/strings/).
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/HpxnyM4SZyP)
 
 #### Bibliothèque `time`
 
@@ -592,6 +597,7 @@ func main() {
 ```
 
 Pour plus d'informations sur cette bibliothèque : [Golang-time](https://golang.org/pkg/time/).
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/AnoLszErs2i)
 
 ### Principales bibliothèques tierces
 
@@ -679,6 +685,8 @@ Il est important de noter que :
 Il est maintenant nécessaire de compiler et exécuter cet exemple : pour cela, il faut aller dans l'arborescence `$GOPATH/`
 Pour compiler la librairie `point`, on lance la commande suivante `go build point/`. Enfin, pour compiler le programme principal, on utilise `go install projet/`. Ainsi, un exécutable `projet` apparaîtra dans le dossier `$GOPATH/bin/`, qu'on exécutera avec `./bin/projet`. 
 
+Pour exécuter l'exemple : [Playground](carte_reference/exemples/compilation.zip)
+
 ### Tests unitaires
 
 Il est possible en langage Go de réaliser des tests unitaires afin d'augmenter la confiance de programmeur pour des portions de code. On peut donc tester des fonctions. Cela est notamment comparable à `Junit` en langage Java ou à `CUnit` en langage C. 
@@ -714,6 +722,8 @@ Il est important de noter ici que :
 - le package du fichier test doit être identique à celui du fichier testé. 
 - la signature d'une fonction test doit être `func TestZZZ(t *testing.T)`
 - `Errorf(...)` permet de gérer l'affichage lors d'un échec d'un test unitaire. 
+
+Pour exécuter l'exemple : [Playground](carte_reference/exemples/tests_unitaires.zip)
 
 ### Documentation
 
