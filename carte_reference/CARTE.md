@@ -11,9 +11,17 @@ Une déclaration permet de créer une variable modifiable à tout moment.
     
 ```go
 var a int = 1
-/* ou directement */
-a := 1 
+fmt.Println(a)
+
+// ou directement
+
+b := 1
+fmt.Println(b) 
 ```
+
+Pour plus d'informations sur la déclaration de variables : [Variables](https://golang.org/ref/spec#Variables)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fXhZj0Klfl5)
+
 
 ### Constante 
 
@@ -22,6 +30,10 @@ Une constante permet de déclarer un élément non modifiable.
 ```go
 const pi float32 = 3.14
 ```
+
+Pour plus d'informations sur la déclaration de constantes : [Constantes](https://golang.org/ref/spec#Constants)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/In_myhSkJjF)
+
 
 ### Type
 
@@ -36,6 +48,8 @@ Il existe plusieurs types en langage Go :
 Les manipulations arithmétiques (`+`, `-`, `*`, `/`, `%`, `++` et `--`), relationnelles (`==`, `!=`, `>`, `<`, `>=` et `<=`) et binaires (`<<`, `>>`, `&`, `|`, `^`) fonctionnent en Go. 
 
 
+Pour plus d'informations sur les types : [Type](https://golang.org/ref/spec#Types)
+
 
 ### import
 
@@ -44,6 +58,8 @@ Le mot clé `import` permet d'importer des modules tels que les bibliothèques s
 ```go
 import "fmt"
 ```
+Pour plus d'informations sur l'import d'une bibliothèque : [Import](https://golang.org/ref/spec#Import_declarations)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/9j-MiWXan-2)
     
 
 ### Condition 
@@ -60,6 +76,9 @@ if a < 0{
     fmt.Println(a, "nul")
 }
 ```
+Pour plus d'informations sur les conditions : [Condition](https://golang.org/ref/spec#If_statements)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fWHXKDPXkyu)
+
 
 ### Boucle 
 
@@ -70,7 +89,7 @@ for i := 0; i < 10; i++ {
     fmt.Println(i)
 }
 
-/* ou bien */
+// ou bien 
 
 i := 0 
 for i < 10 {
@@ -78,6 +97,9 @@ for i < 10 {
     i = i + 1
 }
 ```
+Pour plus d'informations sur les boucles : [Boucle](https://golang.org/ref/spec#For_statements)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/lOZiv2GZ6gl)
+
 
 ### Break
 
@@ -91,6 +113,9 @@ for i:=0; i < 10; i++ {
     fmt.Println(i)
 }
 ```
+Pour plus d'informations sur les break : [Break](https://golang.org/ref/spec#Break_statements)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/yxKc5C3hnFz)
+
 
 ### Switch
 
@@ -105,6 +130,9 @@ switch a%2 {
         fmt.Println("impair")
 }
 ```
+Pour plus d'informations sur les switchs : [Switch](https://golang.org/ref/spec#Switch_statements)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3YV0JGZly9B)
+
 
 ### Tableau  
 
@@ -115,10 +143,13 @@ var b [2] int
 b[0]=0
 b[1]=1
 
-/* ou directement */ 
+// ou directement 
 
 b := [2]int{0, 1}
 ```
+Pour plus d'informations sur les tableaux : [Tableau](https://golang.org/ref/spec#Index_expressions)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/sjUW6wQfXT9)
+
 
 ### Slice 
 
@@ -129,10 +160,12 @@ s := make([]string, 2)
 s[0] = "a"
 s[1] = "b"
 
-/* ou directement */ 
+// ou directement  
 
 s := []string{"a", "b"}
 ```
+Pour plus d'informations sur les slices : [Slice](https://golang.org/ref/spec#Slice_expressions)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/P2lsEJUNiaQ)
 
 ### len()
 
@@ -142,6 +175,8 @@ s := []string{"a", "b"}
 var a [2] int
 fmt.Println(len(a))
 ```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/UwQd4cqGTYq)
+
 
 ### append()
 
@@ -153,6 +188,8 @@ s[0] = "a"
 s[1] = "b"
 s = append(s, "c") 
 ```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/uGLv_D6i6Gd)
+
 
 ### copy()
 
@@ -165,6 +202,8 @@ s[1] = "b"
 c := make([]string, len(s))
 copy(c, s) 
 ```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/B5oC8EmkJKk)
+
 
 ### Map 
 
@@ -175,6 +214,9 @@ m := make(map[string]int)
 m["mehdi"] = 1
 m["clement"] = 2
 ```
+Pour plus d'informations sur les maps : [Map](https://golang.org/ref/spec#Map_types)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/7xQS9cJFnhl)
+
 
 ### delete() 
 
@@ -186,6 +228,8 @@ m["mehdi"] = 1
 m["clement"] = 2
 delete(m, "clement")
 ```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/O4WqofKVmm7)
+
 
 ### identificateur _
 
@@ -199,6 +243,8 @@ m["clement"] = 2
 _, test1 := m["clement"] // test1 vaut true
 _, test2 := m["inconnu"] // test2 vaut false
 ```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/BhEIqBnHRUm)
+
 
 ### range
 
@@ -212,6 +258,8 @@ for _, val := range tab {
 }
 fmt.Println("Somme:", somme)
 ```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/XnrjmsWVemh)
+
 
 ### Fonction 
 
@@ -232,6 +280,9 @@ func main() {
     test3 = calcul1(1,2)
 }
 ```
+Pour plus d'informations sur les fonctions : [Fonction](https://golang.org/ref/spec#Function_types)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/6esO9svFjH7)
+
 
 ### Pointeur 
 
@@ -248,6 +299,9 @@ func main() {
     fmt.Println(cal)
 }
 ```
+Pour plus d'informations sur les pointeurs : [Pointeur](https://golang.org/ref/spec#Pointer_types)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/Wqvp7Xu9YUq)
+
 
 ### Structure 
 
@@ -264,6 +318,9 @@ func main() {
     fmt.Println(e)
 }
 ```
+Pour plus d'informations sur les structures : [Structure](https://golang.org/ref/spec#Struct_types)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DVFLQEO4O42)
+
 
 ### Méthode 
 
@@ -281,6 +338,9 @@ func main() {
     fmt.Println(e)
 }
 ```
+Pour plus d'informations sur les méthodes : [Méthode](https://golang.org/ref/spec#Method_declarations)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/dsDZ7ONTMP_2)
+
 
 ### Interface 
 
@@ -318,6 +378,9 @@ func main() {
     parler(fran) // affiche "bonjour"
 }
 ```
+Pour plus d'informations sur les interfaces : [Interface](https://golang.org/ref/spec#Interface_types)
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3k2Grm3xwGW)
+
 
 ### Ligne de commande et Arguments
 
@@ -341,6 +404,8 @@ func main() {
     fmt.Println(commandeSansAppelProgr)
 }
 ```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/ttWPbtEUNEX)
+
 
 ## Bibliothèques du langage Go
 

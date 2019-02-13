@@ -8,7 +8,7 @@ func main() {
 	b[1]=1
 	fmt.Println(b)
 
-	/* ou directement */ 
+	// ou directement 
 
 	c := [2]int{0, 1}
 	fmt.Println(c)
