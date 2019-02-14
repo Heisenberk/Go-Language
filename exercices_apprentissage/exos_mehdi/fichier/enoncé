@@ -1,0 +1,7 @@
+1/ Copie le contenu du fichier 1 dans le fichier 2
+2/ Lister les fichiers contenu dans un dossier en précisant :
+-le Nom du fichier 
+-la taille en octet 
+-les Droits d'écritures
+-la date de la dernière modification
+-determiner si le fichier que l'on traite est un document ( = ce qui est faux normalement car on ne traite que des fichiers)
