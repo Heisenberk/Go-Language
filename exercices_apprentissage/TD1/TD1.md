@@ -3,7 +3,8 @@
 
 But : Apprendre l'environnement et manipuler les différentes bases du langage de programmation Go. 
 Difficulté : Facile
-Connaissances à avoir : Variables, Conditions, Fonctions,  Bibliothèques standards, Ligne de commande et Arguments, 
+Connaissances à avoir : Variables, Conditions, Fonctions,  Bibliothèques standards, Ligne de commande et Arguments, Structures.
+Durée du TD : 1h15 - 1h30
 
 ## Exercice 1 : Installation
 
