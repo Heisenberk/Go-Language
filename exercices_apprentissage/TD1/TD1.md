@@ -37,6 +37,8 @@ func main() {
 ```
 Pour compiler, il suffit de taper `go build hello`, puis, pour exécuter, faire `./hello`. 
 
+Pour avoir le code complet : [exo1.1](exo1.1.zip)
+
 ## Exercice 2 : Conversions
 
 Ecrire un programme qui convertit un temps donné en secondes, minutes et secondes (avec l'accord des pluriels). Le calcul doit se faire dans une fonction et doit retourner, par exemple, `3620 correspond à 1 heure, 0 minute et 20 secondes`. 
@@ -91,6 +93,9 @@ func main() {
 }
 ```
 
+Pour avoir le code complet : [exo1.2](exo1.2.zip)
+
+
 ## Exercice 3 : Récursion
 
 Il est possible de faire des appels récursifs en langage Go. Fibonacci et Factorielle sont deux fonctions illustrant la récursivité. 
@@ -103,7 +108,7 @@ L'utilisateur du programme doit pouvoir entrer en paramètre d'arguments le nomb
 
 Solution : 
 
-1. 
+Exercice de Fibonacci :
 
 ```go
 package main
@@ -136,7 +141,8 @@ func main() {
 }
 ```
 
-2. 
+Exercice de Factorielle : 
+
 ```go
 package main
 
@@ -167,6 +173,8 @@ func main() {
 	}
 }
 ```
+
+Pour avoir le code complet : [exo1.3](exo1.3.zip)
 
 
 ## Exercice 4 : Primalité
@@ -223,6 +231,8 @@ func main() {
 	}
 }
 ```
+
+Pour avoir le code complet : [exo1.4](exo1.4.zip)
 
 ## Exercice 5 : Nombres Amicaux
 
@@ -293,6 +303,8 @@ func main() {
 }
 ```
 
+Pour avoir le code complet : [exo1.5](exo1.5.zip)
+
 ## Exercice 6 : Fraction
 
 1. Définir une structure de données `Fraction` permettant de représenter en forme fractionnaire un nombre flottant. De plus, la fraction doit toujours être irréductible. 
@@ -357,3 +369,4 @@ func DivFrac(f1 Fraction,f2 Fraction) Fraction{
 }
 ```
 
+Pour avoir le code complet : [exo1.6](exo1.6.zip)
