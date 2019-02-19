@@ -5,7 +5,9 @@
 
 ## Bases du langage 
 
-### Variable
+### Briques du langage 
+
+#### Variable
 
 Une déclaration permet de créer une variable modifiable à tout moment. 
     
@@ -24,7 +26,7 @@ Pour plus d'informations sur la déclaration de variables : [Variables](https://
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fXhZj0Klfl5)
 
 
-### Constante 
+#### Constante 
 
 Une constante permet de déclarer un élément non modifiable.
     
@@ -37,7 +39,7 @@ Pour plus d'informations sur la déclaration de constantes : [Constantes](https:
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/In_myhSkJjF)
 
 
-### Type
+#### Type
 
 Il existe plusieurs types en langage Go : 
 - le type booléen `bool` prend 2 valeurs possibles : `true` ou `false`. 
@@ -52,7 +54,7 @@ Les manipulations arithmétiques (`+`, `-`, `*`, `/`, `%`, `++` et `--`), relati
 Pour plus d'informations sur les types : [Type](https://golang.org/ref/spec#Types)
 
 
-### import
+#### import
 
 Le mot clé `import` permet d'importer des modules tels que les bibliothèques standards (ex : `fmt`).
     
@@ -62,26 +64,26 @@ import "fmt"
 Pour plus d'informations sur l'import d'une bibliothèque : [Import](https://golang.org/ref/spec#Import_declarations)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/9j-MiWXan-2)
-    
 
-### Condition 
+#### Pointeur 
 
-Une condition permet de faire des instructions si la condition est vraie (`if`). On peut effectuer des instructions si la condition est fausse (`else`). Il est possible de faire une succession de tests avec `if/else if/.../else`.
+Un pointeur permet de faire des références sur des variables. Les pointeurs Go s'utilisent comme en langage C.
     
 ```go
-var a int = 3
-if a < 0{
-    fmt.Println(a, "negatif")
-} else if a > 0 {
-    fmt.Println(a, "positif")
-} else {
-    fmt.Println(a, "nul")
+func add (val *int){
+    *val = *val + 1
+}
+
+func main() {
+    var cal int = 2
+    add(&cal)
+    fmt.Println(cal)
 }
 ```
-Pour plus d'informations sur les conditions : [Condition](https://golang.org/ref/spec#If_statements)
+Pour plus d'informations sur les pointeurs : [Pointeur](https://golang.org/ref/spec#Pointer_types)
 
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fWHXKDPXkyu)
-
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/Wqvp7Xu9YUq)
+    
 
 ### Boucle 
 
@@ -105,7 +107,48 @@ Pour plus d'informations sur les boucles : [Boucle](https://golang.org/ref/spec#
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/lOZiv2GZ6gl)
 
 
-### Break
+### Instructions de branchement conditionnel
+
+#### Condition 
+
+Une condition permet de faire des instructions si la condition est vraie (`if`). On peut effectuer des instructions si la condition est fausse (`else`). Il est possible de faire une succession de tests avec `if/else if/.../else`.
+    
+```go
+var a int = 3
+if a < 0{
+    fmt.Println(a, "negatif")
+} else if a > 0 {
+    fmt.Println(a, "positif")
+} else {
+    fmt.Println(a, "nul")
+}
+```
+Pour plus d'informations sur les conditions : [Condition](https://golang.org/ref/spec#If_statements)
+
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fWHXKDPXkyu)
+
+
+#### Switch
+
+`switch` permet de faire une succession de cas possibles au lieu de plusieurs tests successifs.
+    
+```go
+a := 1
+switch a%2 {
+    case 0:Instructions de branchement non conditionnel
+        fmt.Println("pair")
+    case 1:
+        fmt.Println("impair")
+}
+```
+Pour plus d'informations sur les switchs : [Switch](https://golang.org/ref/spec#Switch_statements)
+
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3YV0JGZly9B)
+
+
+### Instructions de branchement non conditionnel
+
+#### Break
 
 `break` permet de sortir de la boucle dans laquelle se trouve l'instruction.
     
@@ -122,25 +165,9 @@ Pour plus d'informations sur les break : [Break](https://golang.org/ref/spec#Bre
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/yxKc5C3hnFz)
 
 
-### Switch
+### Collections
 
-`switch` permet de faire une succession de cas possibles au lieu de plusieurs tests successifs.
-    
-```go
-a := 1
-switch a%2 {
-    case 0:
-        fmt.Println("pair")
-    case 1:
-        fmt.Println("impair")
-}
-```
-Pour plus d'informations sur les switchs : [Switch](https://golang.org/ref/spec#Switch_statements)
-
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3YV0JGZly9B)
-
-
-### Tableau  
+#### Tableau  
 
 Un tableau permet de déclarer un ensemble fini (à une ou plusieurs dimensions) et ordonné de variables ayant le même type.
     
@@ -158,7 +185,7 @@ Pour plus d'informations sur les tableaux : [Tableau](https://golang.org/ref/spe
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/sjUW6wQfXT9)
 
 
-### Slice 
+#### Slice 
 
 `make` permet de déclarer une slice (tableau dynamique) à une ou plusieurs dimensions.
     
@@ -175,45 +202,7 @@ Pour plus d'informations sur les slices : [Slice](https://golang.org/ref/spec#Sl
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/P2lsEJUNiaQ)
 
-### len()
-
-`len()` permet de récupérer la taille d'un tableau, d'un string ou d'une slice.
-    
-```go
-var a [2] int
-fmt.Println(len(a))
-```
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/UwQd4cqGTYq)
-
-
-### append()
-
-`append()` permet d'ajouter un élément à la slice.
-    
-```go
-s := make([]string, 2)
-s[0] = "a"
-s[1] = "b"
-s = append(s, "c") 
-```
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/uGLv_D6i6Gd)
-
-
-### copy()
-
-`copy()` permet de copier une slice dans une autre.
-    
-```go
-s := make([]string, 2)
-s[0] = "a"
-s[1] = "b"
-c := make([]string, len(s))
-copy(c, s) 
-```
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/B5oC8EmkJKk)
-
-
-### Map 
+#### Map 
 
 Une map permet de stocker des valeurs en leur associant une clé.
     
@@ -227,7 +216,45 @@ Pour plus d'informations sur les maps : [Map](https://golang.org/ref/spec#Map_ty
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/7xQS9cJFnhl)
 
 
-### delete() 
+### Opérations sur les collections
+
+#### len()
+
+`len()` permet de récupérer la taille d'un tableau, d'un string ou d'une slice.
+    
+```go
+var a [2] int
+fmt.Println(len(a))
+```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/UwQd4cqGTYq)
+
+#### append()
+
+`append()` permet d'ajouter un élément à la slice.
+    
+```go
+s := make([]string, 2)
+s[0] = "a"
+s[1] = "b"
+s = append(s, "c") 
+```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/uGLv_D6i6Gd)
+
+#### copy()
+
+`copy()` permet de copier une slice dans une autre.
+    
+```go
+s := make([]string, 2)
+s[0] = "a"
+s[1] = "b"
+c := make([]string, len(s))
+copy(c, s) 
+```
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/B5oC8EmkJKk)
+
+
+#### delete() 
 
 `delete()` permet de supprimer une valeur dans la map.
     
@@ -239,8 +266,7 @@ delete(m, "clement")
 ```
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/O4WqofKVmm7)
 
-
-### identificateur _
+#### identificateur _
 
 Cet identificateur `_` permet de déclarer une variable que l'on veut ignorer. Ici, l'appel `m["clement"]` permet de savoir si une valeur ayant la clé "clement" est présente (true ou false pour la variable test1).
 Le premier argument permet de récupérer sa position, or, dans notre exemple, il ne nous est pas utile : il est donc ignoré grâce à `_`. 
@@ -254,8 +280,7 @@ _, test2 := m["inconnu"] // test2 vaut false
 ```
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/BhEIqBnHRUm)
 
-
-### range
+#### range
 
 `range` permet d'itérer facilement dans une structure de tableau, de slice ou de map.
     
@@ -270,7 +295,29 @@ fmt.Println("Somme:", somme)
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/XnrjmsWVemh)
 
 
-### Fonction 
+### Structure 
+
+Déclarer une structure se fait avec le mot clé `struct`. Une structure est un nouveau type de variables possédant plusieurs champs.
+    
+```go
+type etudiant struct {
+    nom string
+    num  int
+}
+
+func main() {
+    e := etudiant{nom: "Clement", num: 21501810}
+    fmt.Println(e)
+}
+```
+Pour plus d'informations sur les structures : [Structure](https://golang.org/ref/spec#Struct_types)
+
+Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DVFLQEO4O42)
+
+
+### Appels de suites d'opérations
+
+#### Fonction 
 
 Déclarer une fonction se fait avec le mot clé `func`. Une fonction peut avoir plusieurs retours.
     
@@ -294,47 +341,7 @@ Pour plus d'informations sur les fonctions : [Fonction](https://golang.org/ref/s
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/6esO9svFjH7)
 
 
-### Pointeur 
-
-Un pointeur permet de faire des références sur des variables. Les pointeurs Go s'utilisent comme en langage C.
-    
-```go
-func add (val *int){
-    *val = *val + 1
-}
-
-func main() {
-    var cal int = 2
-    add(&cal)
-    fmt.Println(cal)
-}
-```
-Pour plus d'informations sur les pointeurs : [Pointeur](https://golang.org/ref/spec#Pointer_types)
-
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/Wqvp7Xu9YUq)
-
-
-### Structure 
-
-Déclarer une structure se fait avec le mot clé `struct`. Une structure est un nouveau type de variables possédant plusieurs champs.
-    
-```go
-type etudiant struct {
-    nom string
-    num  int
-}
-
-func main() {
-    e := etudiant{nom: "Clement", num: 21501810}
-    fmt.Println(e)
-}
-```
-Pour plus d'informations sur les structures : [Structure](https://golang.org/ref/spec#Struct_types)
-
-Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DVFLQEO4O42)
-
-
-### Méthode 
+#### Méthode 
 
 Une méthode correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure). On peut la comparer aux méthodes du langage Java. 
     
@@ -355,7 +362,7 @@ Pour plus d'informations sur les méthodes : [Méthode](https://golang.org/ref/s
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/dsDZ7ONTMP_2)
 
 
-### Interface 
+#### Interface 
 
 Une interface permet de regrouper des signatures de méthodes communes à plusieurs structures.
     
