@@ -3,13 +3,66 @@
 
 # Carte de référence du langage Go
 
-## Bases du langage 
+## Sommaire
 
-### Briques du langage 
+1. [Bases du langage](#bases)
+    1. [Briques du langage](#briques)
+        1. [Variable](#variable)
+        2. [Constante](#constante)
+        3. [Type](#type)
+        4. [Import](#import)
+        5. [Pointeur](#pointeur)
+    2. [Boucle](#boucle)
+    3. [Instructions de branchement conditionnel](#branch_condition)
+        1. [Condition](#condition)
+        2. [Switch](#switch)
+    4. [Instructions de branchement non conditionnel](#branch_non_condition)
+        1. [Break](#break)
+    5. [Collections](#collections)
+        1. [Tableau](#tableau) 
+        2. [Slice](#slice)
+        3. [Map](#map)
+    6. [Opérations sur les collections](#ope_collections)
+        1. [len()](#len)
+        2. [append()](#append)
+        3. [copy()](#copy)
+        4. [delet()](#delete)
+        5. [identificateur `_`](#identificateur)
+        6. [range](#range)
+    7. [Structure](#structure)
+    8. [Appels de suites d'opérations](#appel_suites_operations)
+        1. [Fonction](#fonction)
+        2. [Méthode](#methode)
+        3. [Interface](#interface)
+    9. [Ligne de commande et Arguments](#ligne_commande)
+2. [Bibliothèques du langage Go](#biblio)
+    1. [Principales bibliothèques standards](#standards)
+        1. [Bibliothèque `fmt`](#fmt)
+        2. [Bibliothèque `errors`](#errors)
+        3. [Bibliothèque `os`](#os)
+        4. [Bibliothèque `io`](#io)
+        5. [Bibliothèque `strings`](#strings)
+        6. [Bibliothèque `time`](#time)
+    2. [Principales bibliothèques tierces](#tierces)
+        1. [Bibliothèque `debug`](#debug)
+        2. [Bibliothèque `mobile`](#mobile)
+3. [Outils de développement](#outils)
+    1. [Présentation](#presentation)
+    2. [Commandes](#commandes)
+    3. [Compilation](#compilation)
+    4. [Tests unitaires](#tests)
+    5. [Documentation](#documentation)
 
-#### Variable
+4. [Ressources d'apprentissage](#ressources)
 
-Une déclaration permet de créer une variable modifiable à tout moment. 
+
+## Bases du langage <a id="bases"></a> 
+
+### Briques du langage <a id="briques"></a> 
+
+#### Variable <a id="variable"></a> 
+
+Une déclaration permet de créer une [variable](https://golang.org/ref/spec#Variables) modifiable à tout moment. 
     
 ```go
 var a int = 1
@@ -21,27 +74,23 @@ b := 1
 fmt.Println(b) 
 ```
 
-Pour plus d'informations sur la déclaration de variables : [Variables](https://golang.org/ref/spec#Variables)
-
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fXhZj0Klfl5)
 
 
-#### Constante 
+#### Constante <a id="constante"></a> 
 
-Une constante permet de déclarer un élément non modifiable.
+Une [constante](https://golang.org/ref/spec#Constants) permet de déclarer un élément non modifiable.
     
 ```go
 const pi float32 = 3.14
 ```
 
-Pour plus d'informations sur la déclaration de constantes : [Constantes](https://golang.org/ref/spec#Constants)
-
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/In_myhSkJjF)
 
 
-#### Type
+#### Type <a id="type"></a> 
 
-Il existe plusieurs types en langage Go : 
+Il existe plusieurs [types](https://golang.org/ref/spec#Types) en langage Go : 
 - le type booléen `bool` prend 2 valeurs possibles : `true` ou `false`. 
 - le type `string` représentant une chaîne de caractères. 
 - le type entier non signé : `uint`, `uint8` (ou `byte` pour représenter l'octet), `uint16`, `uint32` et `uint64`.
@@ -51,23 +100,20 @@ Il existe plusieurs types en langage Go :
 
 Les manipulations arithmétiques (`+`, `-`, `*`, `/`, `%`, `++` et `--`), relationnelles (`==`, `!=`, `>`, `<`, `>=` et `<=`) et binaires (`<<`, `>>`, `&`, `|`, `^`) fonctionnent en Go. 
 
-Pour plus d'informations sur les types : [Type](https://golang.org/ref/spec#Types)
 
+#### import <a id="import"></a> 
 
-#### import
-
-Le mot clé `import` permet d'importer des modules tels que les bibliothèques standards (ex : `fmt`).
+Le mot clé [`import`](https://golang.org/ref/spec#Import_declarations) permet d'importer des modules tels que les bibliothèques standards (ex : `fmt`).
     
 ```go
 import "fmt"
 ```
-Pour plus d'informations sur l'import d'une bibliothèque : [Import](https://golang.org/ref/spec#Import_declarations)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/9j-MiWXan-2)
 
-#### Pointeur 
+#### Pointeur <a id="pointeur"></a> 
 
-Un pointeur permet de faire des références sur des variables. Les pointeurs Go s'utilisent comme en langage C.
+Un [pointeur](https://golang.org/ref/spec#Pointer_types) permet de faire des références sur des variables. Les pointeurs Go s'utilisent comme en langage C.
     
 ```go
 func add (val *int){
@@ -80,14 +126,13 @@ func main() {
     fmt.Println(cal)
 }
 ```
-Pour plus d'informations sur les pointeurs : [Pointeur](https://golang.org/ref/spec#Pointer_types)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/Wqvp7Xu9YUq)
     
 
-### Boucle 
+### Boucle <a id="boucle"></a> 
 
-Une boucle se fait avec le mot clé `for`. 
+Une [boucle](https://golang.org/ref/spec#For_statements) se fait avec le mot clé `for`. 
    
 ```go
 for i := 0; i < 10; i++ {
@@ -102,16 +147,15 @@ for i < 10 {
     i = i + 1
 }
 ```
-Pour plus d'informations sur les boucles : [Boucle](https://golang.org/ref/spec#For_statements)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/lOZiv2GZ6gl)
 
 
-### Instructions de branchement conditionnel
+### Instructions de branchement conditionnel <a id="branch_condition"></a> 
 
-#### Condition 
+#### Condition <a id="condition"></a> 
 
-Une condition permet de faire des instructions si la condition est vraie (`if`). On peut effectuer des instructions si la condition est fausse (`else`). Il est possible de faire une succession de tests avec `if/else if/.../else`.
+Une [condition](https://golang.org/ref/spec#If_statements) permet de faire des instructions si la condition est vraie (`if`). On peut effectuer des instructions si la condition est fausse (`else`). Il est possible de faire une succession de tests avec `if/else if/.../else`.
     
 ```go
 var a int = 3
@@ -123,14 +167,13 @@ if a < 0{
     fmt.Println(a, "nul")
 }
 ```
-Pour plus d'informations sur les conditions : [Condition](https://golang.org/ref/spec#If_statements)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/fWHXKDPXkyu)
 
 
-#### Switch
+#### Switch <a id="switch"></a> 
 
-`switch` permet de faire une succession de cas possibles au lieu de plusieurs tests successifs.
+[`switch`](https://golang.org/ref/spec#Switch_statements) permet de faire une succession de cas possibles au lieu de plusieurs tests successifs.
     
 ```go
 a := 1
@@ -141,16 +184,15 @@ switch a%2 {
         fmt.Println("impair")
 }
 ```
-Pour plus d'informations sur les switchs : [Switch](https://golang.org/ref/spec#Switch_statements)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3YV0JGZly9B)
 
 
-### Instructions de branchement non conditionnel
+### Instructions de branchement non conditionnel <a id="branch_non_condition"></a> 
 
-#### Break
+#### Break <a id="break"></a> 
 
-`break` permet de sortir de la boucle dans laquelle se trouve l'instruction.
+[`break`](https://golang.org/ref/spec#Break_statements) permet de sortir de la boucle dans laquelle se trouve l'instruction.
     
 ```go
 for i:=0; i < 10; i++ {
@@ -160,16 +202,15 @@ for i:=0; i < 10; i++ {
     fmt.Println(i)
 }
 ```
-Pour plus d'informations sur les break : [Break](https://golang.org/ref/spec#Break_statements)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/yxKc5C3hnFz)
 
 
-### Collections
+### Collections <a id="collections"></a> 
 
-#### Tableau  
+#### Tableau <a id="tableau"></a> 
 
-Un tableau permet de déclarer un ensemble fini (à une ou plusieurs dimensions) et ordonné de variables ayant le même type.
+Un [tableau](https://golang.org/ref/spec#Index_expressions) permet de déclarer un ensemble fini (à une ou plusieurs dimensions) et ordonné de variables ayant le même type.
     
 ```go
 var b [2] int
@@ -180,14 +221,13 @@ b[1]=1
 
 b := [2]int{0, 1}
 ```
-Pour plus d'informations sur les tableaux : [Tableau](https://golang.org/ref/spec#Index_expressions)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/sjUW6wQfXT9)
 
 
-#### Slice 
+#### Slice <a id="slice"></a> 
 
-`make` permet de déclarer une slice (tableau dynamique) à une ou plusieurs dimensions.
+`make` permet de déclarer une [slice](https://golang.org/ref/spec#Slice_expressions) (tableau dynamique) à une ou plusieurs dimensions.
     
 ```go
 s := make([]string, 2)
@@ -198,27 +238,25 @@ s[1] = "b"
 
 s := []string{"a", "b"}
 ```
-Pour plus d'informations sur les slices : [Slice](https://golang.org/ref/spec#Slice_expressions)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/P2lsEJUNiaQ)
 
-#### Map 
+#### Map <a id="map"></a> 
 
-Une map permet de stocker des valeurs en leur associant une clé.
+Une [map](https://golang.org/ref/spec#Map_types) permet de stocker des valeurs en leur associant une clé.
     
 ```go
 m := make(map[string]int)
 m["mehdi"] = 1
 m["clement"] = 2
 ```
-Pour plus d'informations sur les maps : [Map](https://golang.org/ref/spec#Map_types)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/7xQS9cJFnhl)
 
 
-### Opérations sur les collections
+### Opérations sur les collections <a id="ope_collections"></a> 
 
-#### len()
+#### len() <a id="len"></a> 
 
 `len()` permet de récupérer la taille d'un tableau, d'un string ou d'une slice.
     
@@ -228,7 +266,7 @@ fmt.Println(len(a))
 ```
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/UwQd4cqGTYq)
 
-#### append()
+#### append() <a id="append"></a> 
 
 `append()` permet d'ajouter un élément à la slice.
     
@@ -240,7 +278,7 @@ s = append(s, "c")
 ```
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/uGLv_D6i6Gd)
 
-#### copy()
+#### copy() <a id="copy"></a> 
 
 `copy()` permet de copier une slice dans une autre.
     
@@ -254,7 +292,7 @@ copy(c, s)
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/B5oC8EmkJKk)
 
 
-#### delete() 
+#### delete() <a id="delete"></a> 
 
 `delete()` permet de supprimer une valeur dans la map.
     
@@ -266,7 +304,7 @@ delete(m, "clement")
 ```
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/O4WqofKVmm7)
 
-#### identificateur _
+#### identificateur _ <a id="identificateur"></a> 
 
 Cet identificateur `_` permet de déclarer une variable que l'on veut ignorer. Ici, l'appel `m["clement"]` permet de savoir si une valeur ayant la clé "clement" est présente (true ou false pour la variable test1).
 Le premier argument permet de récupérer sa position, or, dans notre exemple, il ne nous est pas utile : il est donc ignoré grâce à `_`. 
@@ -280,7 +318,7 @@ _, test2 := m["inconnu"] // test2 vaut false
 ```
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/BhEIqBnHRUm)
 
-#### range
+#### range <a id="range"></a> 
 
 `range` permet d'itérer facilement dans une structure de tableau, de slice ou de map.
     
@@ -295,9 +333,9 @@ fmt.Println("Somme:", somme)
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/XnrjmsWVemh)
 
 
-### Structure 
+### Structure <a id="structure"></a> 
 
-Déclarer une structure se fait avec le mot clé `struct`. Une structure est un nouveau type de variables possédant plusieurs champs.
+Déclarer une [structure](https://golang.org/ref/spec#Struct_types) se fait avec le mot clé `struct`. Une structure est un nouveau type de variables possédant plusieurs champs.
     
 ```go
 type etudiant struct {
@@ -310,16 +348,15 @@ func main() {
     fmt.Println(e)
 }
 ```
-Pour plus d'informations sur les structures : [Structure](https://golang.org/ref/spec#Struct_types)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DVFLQEO4O42)
 
 
-### Appels de suites d'opérations
+### Appels de suites d'opérations <a id="appel_suites_operations"></a> 
 
-#### Fonction 
+#### Fonction <a id="fonction"></a> 
 
-Déclarer une fonction se fait avec le mot clé `func`. Une fonction peut avoir plusieurs retours.
+Déclarer une [fonction](https://golang.org/ref/spec#Function_types) se fait avec le mot clé `func`. Une fonction peut avoir plusieurs retours.
     
 ```go
 func calcul1 (val1 int, val2 int) int {
@@ -336,14 +373,13 @@ func main() {
     test3 = calcul1(1,2)
 }
 ```
-Pour plus d'informations sur les fonctions : [Fonction](https://golang.org/ref/spec#Function_types)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/6esO9svFjH7)
 
 
-#### Méthode 
+#### Méthode <a id="methode"></a> 
 
-Une méthode correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure). On peut la comparer aux méthodes du langage Java. 
+Une [méthode](https://golang.org/ref/spec#Method_declarations) correspond à une fonction déclarée pour une structure (hors de la déclaration de la structure). On peut la comparer aux méthodes du langage Java. 
     
 ```go
 func (e etudiant) change_num (nouveau int) etudiant{
@@ -357,14 +393,13 @@ func main() {
     fmt.Println(e)
 }
 ```
-Pour plus d'informations sur les méthodes : [Méthode](https://golang.org/ref/spec#Method_declarations)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/dsDZ7ONTMP_2)
 
 
-#### Interface 
+#### Interface <a id="interface"></a> 
 
-Une interface permet de regrouper des signatures de méthodes communes à plusieurs structures.
+Une [interface](https://golang.org/ref/spec#Interface_types) permet de regrouper des signatures de méthodes communes à plusieurs structures.
     
 ```go
 type politesse interface {
@@ -398,12 +433,11 @@ func main() {
     parler(fran) // affiche "bonjour"
 }
 ```
-Pour plus d'informations sur les interfaces : [Interface](https://golang.org/ref/spec#Interface_types)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/3k2Grm3xwGW)
 
 
-### Ligne de commande et Arguments
+### Ligne de commande et Arguments <a id="ligne_commande"></a> 
 
 Il est possible en langage Go de récupérer les arguments tapés par l'utilisateur lors d'un appel d'un programme. Dans l'exemple ci dessous, on va d'abord compiler avec `go build commandes.go`. Puis, on va exécuter le programme avec par exemple `./commandes test1 test2 test3`. Ici, commandeTotale sera `[./commandes test1 test2 test3]` et commandesSansAppelProgr sera `[test1 test2 test3]`. 
 
@@ -428,13 +462,13 @@ func main() {
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/STcdf9y1BRr)
 
 
-## Bibliothèques du langage Go
+## Bibliothèques du langage Go <a id="biblio"></a> 
 
-### Principales bibliothèques standards
+### Principales bibliothèques standards <a id="standards"></a> 
 
-#### Bibliothèque `fmt`
+#### Bibliothèque `fmt` <a id="fmt"></a> 
 
-`fmt` est la bibliothèque permettant de gérer les entrées-sorties de l'utilisateur. En langage C, on peut donc la comparer à la bibliothèque `stdio.h`. 
+[`fmt`](https://golang.org/pkg/fmt/) est la bibliothèque permettant de gérer les entrées-sorties de l'utilisateur. En langage C, on peut donc la comparer à la bibliothèque `stdio.h`. 
 On peut utiliser la fonction `Printf` pour faire un affichage "formaté" et `Scanf` pour récupérer l'entrée de l'utilisateur (le clavier par défaut).  
 
 ```go
@@ -455,13 +489,12 @@ func main() {
     */
 }
 ```
-Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-fmt](https://golang.org/pkg/fmt/) 
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/s5GTQIBgsfc)
 
-#### Bibliothèque `errors`
+#### Bibliothèque `errors` <a id="errors"></a> 
 
-Les erreurs `errors` permettent de gérer les exceptions en langage Go.
+Les erreurs [`errors`](https://golang.org/pkg/errors/) permettent de gérer les exceptions en langage Go.
     
 ```go
 package main
@@ -494,14 +527,13 @@ func main() {
     verifie_positif(12.0)
 }
 ```
-Pour plus d'informations, notamment la gestion des formats ainsi que les retours d'erreurs : [Golang-errors](https://golang.org/pkg/errors/)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/iXRQ7ujdzjp)
 
 
-#### Bibliothèque `os`
+#### Bibliothèque `os` <a id="os"></a> 
 
-La bibliothèque `os` est très utile pour la gestion des processus, des ouvertures et fermetures de fichiers, la manipulation de dossiers et des permissions. 
+La bibliothèque [`os`](https://golang.org/pkg/os/) est très utile pour la gestion des processus, des ouvertures et fermetures de fichiers, la manipulation de dossiers et des permissions. 
 
 Dans cet exemple, on ouvre en écriture le fichier `test_ouverture.txt` (crée un nouveau fichier s'il n'existe pas). Puis, on écrit dans le fichier pour enfin le fermer. 
 
@@ -528,14 +560,12 @@ func main() {
 }
 ```
 
-Pour plus d'informations sur cette bibliothèque standard très complète : [Golang-os](https://golang.org/pkg/os/)
-
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/DrTAOAgrvvg)
 
 
-#### Bibliothèque `io`
+#### Bibliothèque `io` <a id="io"></a> 
 
-`io` est la bibliothèque permettant notamment d'interagir avec les fichiers. Il est donc possible de lire et d'écrire dans des fichiers. 
+[`io`](https://golang.org/pkg/io/) est la bibliothèque permettant notamment d'interagir avec les fichiers. Il est donc possible de lire et d'écrire dans des fichiers. 
 La différence avec `os` est le fait que `io` est plus "haut niveau" que `os` notamment avec la manipulation des fichiers. 
 
 Dans cet exemple, on va lire en entier le fichier `test1.txt` et recopier son contenu dans le fichier `test1_copie.txt`. A noter que si le fichier `test1_copie.txt` n'existe pas, il le crée ; sinon, il l'écrase. 
@@ -560,14 +590,13 @@ func main(){
 
 }
 ```
-Pour plus d'informations, notamment la gestion des retours d'erreurs : [Golang-io](https://golang.org/pkg/io/) et [Golang-io/ioutil](https://golang.org/pkg/io/ioutil/)
 
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/uQK5zoz95-y)
 
 
-#### Bibliothèque `strings`
+#### Bibliothèque `strings` <a id="strings"></a> 
 
-`strings` permet de gérer la manipulation de chaînes de caractères. Elle est comparable à la manipulation de string en langage Java. 
+[`strings`](https://golang.org/pkg/strings/) permet de gérer la manipulation de chaînes de caractères. Elle est comparable à la manipulation de string en langage Java. 
 
 ```go
 package main
@@ -596,13 +625,11 @@ func main() {
 }
 ```
 
-Pour plus d'informations sur toutes les fonctions disponibles de cette bibliothèque standard : [Golang-strings](https://golang.org/pkg/strings/)
-
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/HpxnyM4SZyP)
 
-#### Bibliothèque `time`
+#### Bibliothèque `time` <a id="time"></a> 
 
-La bibliothèque `time` propose des fonctions permettant de mesurer et d'afficher le temps. Celle-ci est comparable à `time.h` en C et à `ctime` en C++. 
+La bibliothèque [`time`](https://golang.org/pkg/time/) propose des fonctions permettant de mesurer et d'afficher le temps. Celle-ci est comparable à `time.h` en C et à `ctime` en C++. 
 La fonction `Now()` permet de stocker l'instant. `Sub` permet de calculer avec précision la différence entre deux instants. 
 
 ```go
@@ -622,31 +649,29 @@ func main() {
 }
 ```
 
-Pour plus d'informations sur cette bibliothèque : [Golang-time](https://golang.org/pkg/time/)
-
 Pour exécuter l'exemple : [Playground](https://play.golang.org/p/AnoLszErs2i)
 
-### Principales bibliothèques tierces
+### Principales bibliothèques tierces <a id="tierces"></a> 
 
-Il existe plusieurs bibliothèques tierces, qui sont pour la plupart une extension de certaines bibliothèques standards sur Go, notamment `crypto`, `image`, `net`, `sync` ou `time`. Il existe d'autres bibliothèques non standards tels que : 
+Il existe plusieurs bibliothèques tierces, qui sont pour la plupart une extension de certaines bibliothèques standards sur Go, notamment [`crypto`](https://golang.org/pkg/crypto/), [`image`](https://golang.org/pkg/image/), [`net`](https://golang.org/pkg/net/), [`sync`](https://golang.org/pkg/sync/) ou [`time`](https://golang.org/pkg/time/). Il existe d'autres bibliothèques non standards tels que : 
 
-#### Bibliothèque `debug`
+#### Bibliothèque `debug` <a id="debug"></a> 
 
-Cette bibliothèque est une librairie expérimentale qui permet au développeur d'applications Go, de gérer plus facilement le débuggage de ses programmes : [Golang-debug](https://godoc.org/golang.org/x/debug).
+Cette bibliothèque [`debug`](https://godoc.org/golang.org/x/debug) est une librairie expérimentale qui permet au développeur d'applications Go, de gérer plus facilement le débuggage de ses programmes.
 
-#### Bibliothèque `mobile`
+#### Bibliothèque `mobile` <a id="mobile"></a> 
 
-La bibliothèque `mobile` permet d'utiliser des programmes Go pour l'intégrer à des applications pour smartphones (tels que Android et iOS) : [Golang-mobile](https://godoc.org/golang.org/x/mobile).
+La bibliothèque [`mobile`](https://godoc.org/golang.org/x/mobile) permet d'utiliser des programmes Go pour l'intégrer à des applications pour smartphones (tels que Android et iOS).
 
-## Outils de développement
+## Outils de développement <a id="outils"></a> 
 
-### Présentation
+### Présentation <a id="presentation"></a> 
 
 Le langage Go est un langage très récent (première version en 2009) et est en forte expansion comme langage populaire pour des applications. De nombreux IDE sont disponibles pour programmer en Go, tels que Eclipse (avec GoClipse comme plugin), IntelliJ, Sublime Text ... Ils permettent de programmer plus facilement en Go, notamment avec la reconnaissance de syntaxe Go. 
 
 Pour plus d'informations sur les IDE supportant Go : [IDEsAndTextEditorPlugins](https://github.com/golang/go/wiki/IDEsAndTextEditorPlugins)
 
-### Commandes
+### Commandes <a id="commandes"></a> 
 
 Pour obtenir toutes les fonctionnalités afin de programmer en langage Go, il suffit d'installer "golang-go", notamment en tapant la commande suivante sur Linux : `sudo apt-get install golang-go`. 
 
@@ -662,7 +687,7 @@ Ainsi, on peut effectuer la commande `go [commande] [arguments]`. Il existe plus
 
 Pour plus d'informations, notamment sur les commandes ainsi que sur les installations et manipulations à effectuer : [CommandesInstallationsGo](https://golang.org/cmd/go/)
 
-### Compilation
+### Compilation <a id="compilation"></a> 
 
 Lors des manipulations à effectuer, il a fallu, entre autre, choisir un `$GOPATH` : il correspond au chemin où chercher les différentes dépendances (non standards). 
 Pour pouvoir créer un projet modulaire en langage Go, il va falloir créer un dossier `$GOPATH/src/pkg` avec `pkg` le nom du package à créer. 
@@ -714,7 +739,7 @@ Pour compiler la librairie `point`, on lance la commande suivante `go build poin
 
 Pour télécharger l'exemple : [ZIP](exemples/compilation.zip)
 
-### Tests unitaires
+### Tests unitaires <a id="tests"></a> 
 
 Il est possible en langage Go de réaliser des tests unitaires afin d'augmenter la confiance de programmeur pour des portions de code. On peut donc tester des fonctions. Cela est notamment comparable à `Junit` en langage Java ou à `CUnit` en langage C. 
 
@@ -752,9 +777,9 @@ Il est important de noter ici que :
 
 Pour télécharger l'exemple : [ZIP](exemples/tests_unitaires.zip)
 
-### Documentation
+### Documentation <a id="documentation"></a> 
 
-La documentation d'un programme Go est possible, notamment avec l'outil `Godoc`. Ainsi, il permet de générer une documentation précise (comparable à Javadoc en Java ou Doxygen en C). Pour cela, on laisse des commentaires de la forme `// Commentaire.` au dessus de chaque structure, package et fonction. Lorsque les commentaires sont bien effectués, on génère la documentation avec la commande suivante : `godoc -http=:8080` et on y accède par un navigateur avec `localhost:8080/pkg/[package]` avec `[package]`le nom du package dont l'on veut voir la documentation. 
+La documentation d'un programme Go est possible, notamment avec l'outil [`Godoc`](https://godoc.org/golang.org/x/tools/cmd/godoc). Ainsi, il permet de générer une documentation précise (comparable à Javadoc en Java ou Doxygen en C). Pour cela, on laisse des commentaires de la forme `// Commentaire.` au dessus de chaque structure, package et fonction. Lorsque les commentaires sont bien effectués, on génère la documentation avec la commande suivante : `godoc -http=:8080` et on y accède par un navigateur avec `localhost:8080/pkg/[package]` avec `[package]`le nom du package dont l'on veut voir la documentation. 
 
 ```go
 // Package point concernant tout ce qui concerne l'entité Point. 
@@ -786,9 +811,8 @@ Ici, il est utile de visualiser la documentation du package `point`. Pour cela, 
 
 ![Documentation point.go](pic/point.png "Documentation de point.go")
 
-Pour plus d'informations sur `Godoc` : [Godoc](https://godoc.org/golang.org/x/tools/cmd/godoc)
 
-## Ressources d'apprentissage
+## Ressources d'apprentissage <a id="ressources"></a> 
 
 - [Préambule pour découvrir le langage Go](https://fr.wikipedia.org/wiki/Go_(langage))
 - [Site officiel de Go](https://golang.org/)
