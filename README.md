@@ -1,5 +1,5 @@
-|   | <img src="pics/logo_carte.png"> | <img src="pics/logo_exos.png" alt="Exercices d'apprentissage"> | <img src="pics/logo_appli.png" alt="Application"> |
-|   | [Carte](carte_reference/CARTE.md) | [TD](exercices_apprentissage/TDs.md) |   |
+| | <a href="carte_reference/CARTE.html"><img src="pics/logo_carte.png" alt="Carte de référence"/></a> | <a href="exercices_apprentissage/TDs.html"><img src="pics/logo_exos.png" alt="Exercices d'apprentissage"/></a> | <img src="pics/logo_appli.png" alt="Application">| 
+
 
 # Découverte du Langage Go
 
