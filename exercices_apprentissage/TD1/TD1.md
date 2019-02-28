@@ -1,13 +1,13 @@
 
 # TD1 : Bases du langage Go
 
-But : Apprendre l'environnement et manipuler les différentes bases du langage de programmation Go. 
+__But :__ Apprendre l'environnement et manipuler les différentes bases du langage de programmation Go. 
 
-Difficulté : Facile
+__Difficulté :__ Facile
 
-Connaissances à avoir : Variables, Conditions, Fonctions,  Bibliothèques standards, Ligne de commande et Arguments, Structures.
+__Connaissances à avoir :__ Variables, Conditions, Fonctions,  Bibliothèques standards, Ligne de commande et Arguments, Structures.
 
-Durée du TD : 1h15 - 1h30
+__Durée du TD :__ 1h15 - 1h30
 
 ## Exercice 1 : Installation
 

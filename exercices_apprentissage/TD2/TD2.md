@@ -1,12 +1,12 @@
 # TD2 : Manipulation de structures complexes
 
-But : Apprendre à manipuler les tableaux, les slices et les maps. 
+__But :__ Apprendre à manipuler les tableaux, les slices et les maps. 
 
-Difficulté : Intermédiaire
+__Difficulté :__ Intermédiaire
 
-Connaissances à avoir : Structures, Tableaux, Slices, Maps, Méthodes, Pointeur.
+__Connaissances à avoir :__ Structures, Tableaux, Slices, Maps, Méthodes, Pointeur.
 
-Durée du TD : -----
+__Durée du TD :__ 1h30 - 1h45
 
 ## Exercice 1 : Tableau, Slice et Tri
 

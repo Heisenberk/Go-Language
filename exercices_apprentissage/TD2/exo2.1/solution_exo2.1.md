@@ -1,6 +1,6 @@
 # TD2 Exercice 1 : Solution 
 
-1. Le tri à bulles consiste à parcourir le tableau et échanger les valeurs consécutives mal triées du tableau jusqu'à ce que toutes les valeurs soient triées. Pour cela, il faut créer une fonction qui échange les valeurs du tableau, en plus de la fonction de tri à bulles : 
+Q1) Le tri à bulles consiste à parcourir le tableau et échanger les valeurs consécutives mal triées du tableau jusqu'à ce que toutes les valeurs soient triées. Pour cela, il faut créer une fonction qui échange les valeurs du tableau, en plus de la fonction de tri à bulles : 
 
 ```go
 package main
@@ -34,7 +34,8 @@ func main() {
 }
 ```
 
-2. Le tri fusion consiste à appeler de façon récursive au tri fusion `triFusion` pour la première moitié du tableau ainsi que la deuxième. Ensuite, il faut fusionner `fusionner` ces deux parties triées : 
+
+Q2) Le tri fusion consiste à appeler de façon récursive au tri fusion `triFusion` pour la première moitié du tableau ainsi que la deuxième. Ensuite, il faut fusionner `fusionner` ces deux parties triées : 
 
 ```go
 package main

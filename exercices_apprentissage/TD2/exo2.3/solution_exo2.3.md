@@ -1,6 +1,6 @@
 # TD2 Exercice 3 : Solution 
 
-1. Pour définir une liste, il va falloir définir deux structures : l'élément `Element` qui sera inséré dans la liste et la liste elle-même `Liste`. 
+Q1) Pour définir une liste, il va falloir définir deux structures : l'élément `Element` qui sera inséré dans la liste et la liste elle-même `Liste`. 
 
 ```go
 type Element struct {
@@ -16,7 +16,7 @@ type Liste struct {
 Un `Element` représente un entier. il aura donc deux champs : un champ `val` représentant cet entier et un champ `suiv` qui sera un pointeur vers l'élément suivant. 
 Sachant que chaque élément pointe vers le suivant, il suffit de stocker dans `Liste` le pointeur du premier élément.
 
-2. Avant de commencer à implémenter les méthodes demandées, il est utile de compter les éléments d'une liste : 
+Q2) Avant de commencer à implémenter les méthodes demandées, il est utile de compter les éléments d'une liste : 
 
 ```go
 func (l *Liste) compte_elem() int {
