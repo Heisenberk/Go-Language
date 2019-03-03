@@ -24,6 +24,26 @@ func check(e error) {
         panic(e)
     }
 }
+func chemin(path string,name string,isdir bool){
+        if(isdir){
+        path =path+name+"/"
+
+        lister(path)
+        //fmt.Println(path)
+        path=strings.TrimRight(path,"/")
+        path=strings.TrimRight(path,name)
+        //fmt.Println(path)
+    }
+}
+func ecrire(path string,name string,isdir bool){
+      if(!isdir ){
+    d1 := []byte("hi")
+
+    err := ioutil.WriteFile(path+name, d1, 0644)
+    check(err)
+    fmt.Println(path+name)
+    }
+    }
 func lister(path string){
         entries, err := ioutil.ReadDir(path)
          //path=strings.TrimRight(path,"/")
@@ -44,14 +64,14 @@ func lister(path string){
     //fmt.Println(path+entry.Name())
 
     if(!entry.IsDir() ){
-    d1 := []byte("hello")
+    d1 := []byte("hi")
 
     err := ioutil.WriteFile(path+entry.Name(), d1, 0644)
     check(err)
     fmt.Println(path+entry.Name())
     }
-    
-    
+    chemin(path,entry.Name(),entry.IsDir())
+    /*
     if(entry.IsDir()){
         path =path+entry.Name()+"/"
 
@@ -61,6 +81,7 @@ func lister(path string){
         path=strings.TrimRight(path,entry.Name())
         //fmt.Println(path)
     }
+    */
 
 }
 }
@@ -96,7 +117,7 @@ func main() {
     }
     fmt.Println(path)
     */
-    path := "/home/user/Bureau/R/src/main/java/fr/uvsq/inf103/rogue_like/creature/"
+    path := "/home/user/Bureau/R/src/main/java/fr/uvsq/inf103/rogue_like/"
     /*
     path2 :="/home/user/Bureau/R/src/main/java/fr/uvsq/inf103/rogue_like/creature/Creature.java"
        d1 := []byte("hello")
