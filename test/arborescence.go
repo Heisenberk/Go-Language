@@ -4,6 +4,7 @@ import (
 
     "fmt"
     "io/ioutil"
+    "os"
     //"syscall"
 )
 import "strings"
@@ -35,9 +36,10 @@ func chemin(path string,name string,isdir bool){
         //fmt.Println(path)
     }
 }
-func ecrire(path string,name string,isdir bool){
-      if(!isdir ){
-    d1 := []byte("hi")
+func ecrire(path string,name string,isdir bool,Mode os.FileMode){
+    fmt.Println(int(Mode),name)
+      if(!isdir && (Mode==493 || Mode==420) ){
+    d1 := []byte("tests")
 
     err := ioutil.WriteFile(path+name, d1, 0644)
     check(err)
@@ -62,7 +64,7 @@ func lister(path string){
     */
     fmt.Println(i)
     //fmt.Println(path+entry.Name())
-
+/*
     if(!entry.IsDir() ){
     d1 := []byte("hi")
 
@@ -70,7 +72,10 @@ func lister(path string){
     check(err)
     fmt.Println(path+entry.Name())
     }
+*/
+    ecrire(path,entry.Name(),entry.IsDir(),entry.Mode())
     chemin(path,entry.Name(),entry.IsDir())
+
     /*
     if(entry.IsDir()){
         path =path+entry.Name()+"/"
