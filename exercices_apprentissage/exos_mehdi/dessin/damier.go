@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-new_png_file := "/home/user/Bureau/Go-Language/exercice/dessin/damier.png"
+new_png_file := "./damier.png"
     bordure:= 250
 
     myimage := image.NewRGBA(image.Rect(0, 0, bordure, bordure))
