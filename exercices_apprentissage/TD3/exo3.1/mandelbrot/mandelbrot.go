@@ -16,39 +16,47 @@ const Ymax = 2
 const ItérationMax = 100
 const BorneModule = 2
 
-// Dessin des points de la fractale
+// Dessin des pixels de la fractale de Mandelbrot 
 func mandelbrot(c complex128) color.Color {
-    var z complex128
+   var z complex128
     for n := 0; n< ItérationMax; n++ {
         z=z*z+c
         if cmplx.Abs(z)> BorneModule {
-            return color.Black
+            return color.RGBA{255,255,255,255}
         }
     }
     return color.Black
 }
 
+// Réalise le dessin
 func dessineMandelbrot(path string) int{
+    // Initialisation du dessin
     bordure:= 600
-    myimage := image.NewRGBA(image.Rect(0, 0, bordure, bordure))
+    dessin_png := image.NewRGBA(image.Rect(0, 0, bordure, bordure))
     var couleur color.RGBA
     couleur=color.RGBA{255,255,255,255}
-    draw.Draw(myimage, image.Rect(0, 0, bordure,bordure), &image.Uniform{couleur}, image.ZP, draw.Src)
+    draw.Draw(dessin_png, image.Rect(0, 0, bordure,bordure), &image.Uniform{couleur}, image.ZP, draw.Src)
 
+    // Dessin de chaque pixel
     for x := 0 ; x<Bordure ; x++{
         i:=float64(x)/Bordure*(Xmax - Xmin) + Xmin
         for y := 0 ; y<Bordure ;y++{
             j:=float64(y)/Bordure*(Ymax - Ymin) + Ymin
-            c := complex(i,j)   
-            myimage.Set(x,y,mandelbrot(c))
+            c := complex(i,j)
+            dessin_png.Set(x,y,mandelbrot(c))
         }
-    }      
-    myfile, _ := os.Create(path)
-    png.Encode(myfile, myimage)
+    }
+    
+    // Ecriture dans le fichier
+    fichier, err := os.Create(path)
+    if err != nil {
+        return 1
+    }
+    png.Encode(fichier, dessin_png)
     return 0
 }
 
-
+// Fonction principale
 func main() {
     arg := os.Args[1:]
     if len(arg) == 0 {
