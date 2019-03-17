@@ -42,6 +42,7 @@ func dessineDamier(path string) int{
     return 0
 }
 
+// Fonction principale
 func main(){
     arg := os.Args[1:]
     if len(arg) == 0 {

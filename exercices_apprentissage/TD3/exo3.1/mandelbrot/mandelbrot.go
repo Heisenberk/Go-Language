@@ -69,5 +69,4 @@ func main() {
             fmt.Println("Dessin de la fractale effectué. ")
         }
     }
-
 }
