@@ -1,6 +1,6 @@
 # TD2 Exercice 2 : Solution 
 
-1. La structure `Coordonnees` comporte 2 champs : `telephone` et `adresse`. On crée également une fonction pour changer les valeurs des coordonnées et une fonction d'affichage. 
+Q1) La structure `Coordonnees` comporte 2 champs : `telephone` et `adresse`. On crée également une fonction pour changer les valeurs des coordonnées et une fonction d'affichage. 
 
 ```go
 // Structure Coordonnees
@@ -22,7 +22,7 @@ func (c Coordonnees) afficheCoordonnees() string{
 }
 ```
 
-2. La structure `Annuaire` correspond à une Map dont le nom du contact est la clé. 
+Q2) La structure `Annuaire` correspond à une Map dont le nom du contact est la clé. 
 
 ```go
 // Structure Annuaire
@@ -36,7 +36,7 @@ func initialiseAnnuaire(annuaire *Annuaire) {
 }
 ```
 
-3. 
+Q3) 
 
 ```go
 // Ajout d'un nouveau contact à l'annuaire
