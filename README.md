@@ -1,4 +1,4 @@
-| | <a href="carte_reference/CARTE.html"><img src="pics/logo_carte.png" alt="Carte de référence"/></a> | <a href="exercices_apprentissage/TDs.html"><img src="pics/logo_exos.png" alt="Exercices d'apprentissage"/></a> | <img src="pics/logo_appli.png" alt="Application">| 
+| | <a href="carte_reference/CARTE.html"><img src="report/pictures/logo_carte.png" alt="Carte de référence"/></a> | <a href="exercices_apprentissage/TDs.html"><img src="report/pictures/logo_exos.png" alt="Exercices d'apprentissage"/></a> | <a href="application_exemple/APP.html"><img src="report/pictures/logo_appli.png" alt="Application">| 
 
 
 # Découverte du Langage Go
