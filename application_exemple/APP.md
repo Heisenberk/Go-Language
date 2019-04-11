@@ -25,4 +25,4 @@ L'utilisateur devra choisir un mot de passe précédé de `--password` ou `-p`.
 - La gestion de la concurrence est exigée pour réaliser l'application. 
 
 
-Pour voir une solution intégrale, cliquer [ici](https://heisenberk.github.io/goShield/)
+Pour voir une solution intégrale, cliquer [ici](https://heisenberk.github.io/goshield/)
