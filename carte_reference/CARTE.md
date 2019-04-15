@@ -806,7 +806,7 @@ func PrintPointReverse (p Point) string {
 
 Ici, il est utile de visualiser la documentation du package `point`. Pour cela, on va sur `localhost:8080/pkg/point` et on obtient : 
 
-![Documentation point.go](pic/point.png "Documentation de point.go")
+![Documentation point.go](../report/pictures/point.png "Documentation de point.go")
 
 
 ## Ressources d'apprentissage <a id="ressources"></a> 

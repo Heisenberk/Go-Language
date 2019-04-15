@@ -22,7 +22,10 @@ L'utilisateur devra choisir un mot de passe précédé de `--password` ou `-p`.
 - La plupart des fonctions, méthodes devront être associées à des tests unitaires.
 - Le projet devra comporter une documentation sous la forme d'un fichier `README.md` et de commentaires `Godoc` dans le code source. 
 - La documentation devra décrire l'usage de l'application (manuel utilisateur) ainsi que la conception (manuel technique). 
-- La gestion de la concurrence est exigée pour réaliser l'application. 
+
+## Fonctionnalités optionnelles
+
+- La gestion de la concurrence peut être utilisée avec les goroutines par exemple. Une comparaison de temps d'exécution pourra être proposée. 
 
 
 Pour voir une solution intégrale, cliquer [ici](https://heisenberk.github.io/goshield/)
