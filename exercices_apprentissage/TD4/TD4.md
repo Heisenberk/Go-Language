@@ -1,4 +1,4 @@
-# TD2 : Manipulation des outils de développement
+# TD4 : Manipulation des outils de développement
 
 __But :__ Apprendre à manipuler les packages, les erreurs et les tests unitaires. 
 

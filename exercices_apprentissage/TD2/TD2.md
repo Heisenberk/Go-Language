@@ -16,7 +16,7 @@ __Durée du TD :__ 1h30 - 1h45
 
 Pour voir la solution intégrale, cliquer [ici](exo2.1/solution_exo2.1.md)
 
-## Exercice 2
+## Exercice 2 : Implémentation d'un annuaire
 
 On souhaite implémenter un annuaire électronique, qui donne pour chaque nom de contact ses coordonnées (numéro de téléphone et adresse). 
 
@@ -28,7 +28,7 @@ On souhaite implémenter un annuaire électronique, qui donne pour chaque nom de
 
 Pour voir la solution intégrale, cliquer [ici](exo2.2/solution_exo2.2.md)
 
-## Exercice 3 
+## Exercice 3 : Implémentation d'une liste chaînée
 
 On souhaite implémenter une liste d'entiers en langage Go sans utiliser la bibliothèque standard `list`.
 

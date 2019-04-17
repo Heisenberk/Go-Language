@@ -18,6 +18,10 @@
   }
 
   \begin{document}
+  	
+  \begin{frame}
+  	\titlepage
+  \end{frame}
 
 \section{Carte de référence}
 
@@ -47,12 +51,12 @@
 \begin{block}{Principales bibliothèques standards} 
 	\begin{itemize}
 		\setbeamertemplate{itemize item}[circle]
-		\item Bibliothèque fmt (entrées-sorties de l'utilisateur)
-		\item Bibliothèque errors (gestion des exceptions)
-		\item Bibliothèque os (gestion des processus, manipulation de permissions de fichiers)
-		\item Bibliothèque io (interaction avec les fichiers)
-		\item Bibliothèque strings (manipulation de chaînes de caractères)
-		\item Bibliothèque time (mesure et gestion du temps)
+		\item Bibliothèque 'fmt' (entrées-sorties de l'utilisateur)
+		\item Bibliothèque 'errors' (gestion des exceptions)
+		\item Bibliothèque 'os' (gestion des processus, manipulation de permissions de fichiers)
+		\item Bibliothèque 'io' (interaction avec les fichiers)
+		\item Bibliothèque 'strings' (manipulation de chaînes de caractères)
+		\item Bibliothèque 'time' (mesure et gestion du temps)
 		\item ...
 	\end{itemize}
 \end{block}
@@ -60,8 +64,8 @@
 \begin{block}{Principales bibliothèques tierces} 
 	\begin{itemize}
 		\setbeamertemplate{itemize item}[circle]
-		\item Bibliothèque debug
-		\item Bibliothèque mobile
+		\item Bibliothèque 'debug'
+		\item Bibliothèque 'mobile'
 		\item ...
 	\end{itemize}
 	%\hspace{2.5cm}
@@ -100,6 +104,84 @@
 	\end{itemize}
 \end{block}
 \end{frame}
+
+\section{Exercices d'apprentissage}
+
+\subsection{TD1 : Installation \& Manipulation des bases du langage}
+
+\begin{frame}
+\begin{block}{TD1 : Installation \& Manipulation des bases du langage} 
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		\item \textcolor{blue}{Exercice 1} : Installation de l'environnement Golang et réalisation du premier programme Go 
+		\item \textcolor{blue}{Exercice 2} : Calcul de conversions d'un temps-secondes en temps exprimé en heures, minutes et secondes
+		\item \textcolor{blue}{Exercice 3} : Réalisation de fonctions récursives (Fibonacci et factorielle)
+		\item \textcolor{blue}{Exercice 4} : Test naïf de primalité
+		\item \textcolor{blue}{Exercice 5} : Test de nombres amicaux
+		\item \textcolor{blue}{Exercice 6} : Création d'une structure de données pour représenter une fraction et réalisation des fonctions de calculs de fractions
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{TD2 : Manipulation de structures complexes}
+
+\begin{frame}
+\begin{block}{TD2 : Manipulation de structures complexes} 
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		\item \textcolor{blue}{Exercice 1} : Implémentation de tris (à bulles et fusion) de tableaux
+		\item \textcolor{blue}{Exercice 2} : Implémentation d'un annuaire électronique et première utilisation de méthodes
+		\item \textcolor{blue}{Exercice 3} : Implémentation de listes et de méthodes manipulant ces dernières 
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{TD3 : Manipulation avancée de bibliothèques Go}
+
+\begin{frame}
+\begin{block}{TD3 : Manipulation avancée de bibliothèques Go} 
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		\item \textcolor{blue}{Exercice 1} : Manipulation de la bibliothèque 'image' pour dessiner un damier, puis une fractale de Mandelbrot
+		\item \textcolor{blue}{Exercice 2} : Manipulation de la bibliothèque 'io' pour implémenter une fonction qui copie le contenu d'un fichier dans un autre fichier et une fonction de lecture des métadonnées d'un fichier
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{TD4 : Manipulation des outils de développement}
+
+\begin{frame}
+\begin{block}{TD4 : Manipulation des outils de développement} 
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		\item \textcolor{blue}{Exercice 1} : Implémentation et manipulation de polynômes en utilisant les outils de développement (compilation, plusieurs packages, documentation godoc, tests unitaires, gestion des exceptions)
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Application exemple}
+
+\subsection{Présentation}
+
+\begin{frame}
+\begin{block}{Introduction} 
+	Il est primordial de prendre conscience de l'importance de chiffrer ses propres communications privées. En effet, avec l'émergence des réseaux informatiques, il y a de plus en plus de risques d'avoir ses communications personnelles surveillées. D'où l'importance d'utiliser des applications de chiffrement.
+	Le but est de créer une application en ligne de commande pour le chiffrement et le déchiffrement de fichiers/dossiers. Son utilisation pourrait être, par exemple, de chiffrer le contenu de dépôt git afin de le rendre illisible pour le public. 
+\end{block}
+
+\begin{alertblock}{Contraintes} 
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		\item utilisation des outils de développement acquis lors de la lecture de la carte de référence (tests unitaires, compilation de packages, documentation godoc ...)
+	\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\subsection{Fonctionnement}
+
+\subsection{Conclusion}
+
+% pk utiliser l'appli, pk utiliser Go ...
 
       
 \end{document}
