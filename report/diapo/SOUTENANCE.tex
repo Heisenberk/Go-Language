@@ -164,7 +164,7 @@
 \subsection{Présentation}
 
 \begin{frame}
-\begin{block}{Introduction} 
+\begin{block}{Application exemple : goshield} 
 	Il est primordial de prendre conscience de l'importance de chiffrer ses propres communications privées. En effet, avec l'émergence des réseaux informatiques, il y a de plus en plus de risques d'avoir ses communications personnelles surveillées. D'où l'importance d'utiliser des applications de chiffrement.
 	Le but est de créer une application en ligne de commande pour le chiffrement et le déchiffrement de fichiers/dossiers. Son utilisation pourrait être, par exemple, de chiffrer le contenu de dépôt git afin de le rendre illisible pour le public. 
 \end{block}
@@ -177,11 +177,80 @@
 \end{alertblock}
 \end{frame}
 
+\begin{frame}
+\begin{exampleblock}{Exemple d'utilisation}
+	L'application propose deux outils différents :  
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		\item chiffrer une liste de fichiers/dossiers avec la commande : \textbf{goshield --encrypt -p projet dossier1/sous-dossier2/ fichier1.txt image.png}
+		\item déchiffrer une liste de fichiers/dossiers avec la commande : \textbf{./goshield --decrypt -p projet dossier1/sous-dossier2/ fichier1.txt.gsh image.png.gsh}
+	\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{Définitions} 
+	L’algorithme de chiffrement choisi pour goshield est l’AES (Advanced Encryption Standard). C’est l’un des algorithmes symétriques les plus sécurisés puisqu’aucune attaque n’a été démontrée (mise à part l’attaque par force brute qui n’est pas réalisable avec la puissance de calcul actuelle).
+	
+	GoShield proposera AES-256 (avec une clé sur 256 bits pour être le plus sécurisé possible). 
+	
+	De plus, l'utilisation du mode opératoire CBC est le plus efficace afin de chiffrer un fichier de taille variable. 
+\end{block}
+\end{frame}
+
 \subsection{Fonctionnement}
+
+\subsubsection{Chiffrement}
+
+\begin{frame}
+\begin{block}{Etapes du chiffrement goshield} 
+	Le chiffrement d’un fichier consiste en plusieurs étapes :
+	\begin{itemize}
+	\setbeamertemplate{itemize item}[circle]
+	\item écriture de la signature GOSHIELD.
+	\item génération et écriture du sel cryptographique pseudo-aléatoire.
+	\item génération et écriture du vecteur d’initialisation (IV).
+	\item écriture de la taille du dernier bloc en octets.
+	\item chiffrement et écriture de chaque bloc chiffré en utilisant AES-256 avec CBC. Le contenu de ce chiffrement sera écrit dans un fichier avec le nom du clair initial concaténé à l’extension goshield (.gsh).
+	\end{itemize}
+	
+\end{block}
+\end{frame}
+
+\subsubsection{Déchiffrement}
+
+\begin{frame}
+\begin{block}{Etapes du déchiffrement goshield} 
+	Le déchiffrement d’un fichier consiste en plusieurs étapes :
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		
+		\item vérification de la bonne extension .gsh.
+		\item vérification de la signature GOSHIELD censée apparaître sur les 8 premiers octets.
+		\item lecture du sel cryptographique et calcul de la clé en concaténant le sel avec le mot de passe choisi par l’utilisateur lors du déchiffrement. 
+		\item lecture de la valeur du vecteur d’initialisation (IV).
+		\item lecture de la taille du dernier bloc en octets. Cela permettra d’enlever le padding sur le dernier bloc.
+		\item déchiffrement et écriture de chaque bloc déchiffré en utilisant AES-256 avec CBC. 
+	\end{itemize}
+	
+\end{block}
+\end{frame}
 
 \subsection{Conclusion}
 
-% pk utiliser l'appli, pk utiliser Go ...
-
+\begin{frame}
+\begin{block}{Pourquoi avoir choisi le langage Go pour cette application ?} 
+	Le langage Go présente un intêret pour ce type d'application :
+	\begin{itemize}
+		\setbeamertemplate{itemize item}[circle]
+		
+		\item il s'agit d'un langage facile à comprendre et qui est aussi puissant que certains langages bas niveaux tel que le langage C.
+		\item Go est également très intéressant pour la programmation "multithread" qui a été utilisée pour cette application. En effet, la gestion de concurrence peut être maintenue aisément grâce à sa facilité d'utilisation. 
+		\item Golang propose de nombreuses bibliothèques. Pour l'application goshield, la bibliothèque crypto nous a permis de travailler sur le chiffrement AES. 
+	\end{itemize}
+	
+\end{block}
+\end{frame}
       
 \end{document}

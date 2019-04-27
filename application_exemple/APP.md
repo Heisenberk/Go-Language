@@ -14,7 +14,7 @@ L'utilisateur devra choisir un mot de passe précédé de `--password` ou `-p`.
 ## Exemple d'utilisation
 
 - `./goshield --encrypt -p projet dossier1/sous-dossier2/ fichier1.txt image.png` chiffre le contenu de `sous-dossier2/`, le fichier texte `fichier1.txt` et le fichier image `image.png` avec le mot de passe `projet`. 
-- `./goshield --decrypt -p projet dossier1/sous-dossier2/ fichier1.txt.gs image.png.gs` déchiffre le contenu de `sous-dossier2/`, le fichier texte chiffré `fichier1.txt.gs` et le fichier image chiffré `image.png.gs` avec le mot de passe `projet`. 
+- `./goshield --decrypt -p projet dossier1/sous-dossier2/ fichier1.txt.gsh image.png.gsh` déchiffre le contenu de `sous-dossier2/`, le fichier texte chiffré `fichier1.txt.gsh` et le fichier image chiffré `image.png.gsh` avec le mot de passe `projet`. 
 
 ## Contraintes techniques 
 
