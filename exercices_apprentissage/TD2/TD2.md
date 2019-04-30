@@ -38,3 +38,12 @@ On souhaite implémenter une liste d'entiers en langage Go sans utiliser la bibl
 
 Pour voir la solution intégrale, cliquer [ici](exo2.3/solution_exo2.3.md)
 
+## Exercice 4 
+
+On souhaite comparer le temps de calcul de la fonction non récursive de la factorielle avec et sans goroutines. 
+
+1. Ecrire une fonction qui calcule de façon non récursive la factorielle d'un grand nombre sans goroutines pour l'instant. 
+
+2. Ecrire une fonction qui calcule de façon non récursive la factorielle d'un grand nombre avec l'implémentation des goroutines. Vous pouvez vous aider avec le lien [suivant](https://fr.wikibooks.org/wiki/Programmation_en_Go/Goroutines). 
+
+Pour voir la solution intégrale, cliquer [ici](exo2.4/solution_exo2.4.md)
